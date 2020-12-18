@@ -1,0 +1,450 @@
+// Variables
+@import "variables";
+
+// Bootstrap
+@import 'bootstrap/bootstrap';
+
+.mtop1 {
+  margin-top: 6px;
+}
+
+.mtop2 {
+  margin-top: 12px;
+}
+
+.mbot4 {
+  margin-bottom: 24px;
+}
+
+.mbot8 {
+  margin-bottom: 48px;
+}
+
+.mbot3 {
+  margin-bottom: 18px;
+}
+
+.mbot2 {
+  margin-bottom: 12px;
+}
+
+.mbot1 {
+  margin-bottom: 6px;
+}
+
+.ptop1 {
+  padding-top: 6px;
+}
+
+.ptop2 {
+  padding-top: 12px !important;
+}
+
+.ptop3 {
+  padding-top: 18px;
+}
+
+.op05 {
+  opacity: 0.5;
+}
+
+.animatedRow {
+  overflow: hidden;
+  opacity: 1;
+  transition: opacity 0.4s ease;
+  -moz-transition: opacity 0.4s ease;
+  -webkit-transition: opacity 0.4s ease;
+  -o-transition: opacity 0.4s ease;
+}
+
+.animatedRow.hidden {
+  height: 0;
+  opacity: 0;
+  padding: 0;
+  margin: 0;
+}
+
+img {
+  outline: none;
+}
+
+input {
+  &[type="radio"],
+  &[type="checkbox"] {
+    cursor: pointer;
+  }
+}
+
+.portrait {
+  @media screen and (orientation: landscape) {
+    & {
+      display: none;
+    }
+  }
+}
+
+.landscape {
+  @media screen and (orientation: portrait) {
+    & {
+      display: none;
+    }
+  }
+}
+
+@keyframes startScale {
+  0% {
+    transform: scale(0.6, 0.6);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.0, 1.0);
+    opacity: 1;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+
+  h1, .h1 {
+    font-size: 25px;
+  }
+
+  h2, .h2 {
+    font-size: 16px;
+  }
+
+  .navbar {
+    background-color: transparent;
+    align-items: flex-end;
+
+    @media screen and (orientation: portrait) {
+      .nav-link {
+        margin-top: 12px;
+      }
+    }
+
+    .navbar-toggler {
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .logo {
+      height: 80px;
+    }
+
+    .mainLabel {
+      vertical-align: bottom;
+    }
+  }
+
+  #header {
+    background-color: #343a40;
+    box-shadow: inset 0 -52px rgba(255, 255, 255, 0.05);
+  }
+
+  #header {
+    margin-bottom: 30px;
+  }
+
+  #footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #f5f5f5;
+  }
+
+  .mainContainer {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1200px;
+  }
+
+  #oilSearch {
+    margin-bottom: 6px;
+  }
+
+  #oilSearch button, #oilSearch input {
+    z-index: 1;
+  }
+
+  #oilSearch button:focus, #oilSearch input:focus {
+    z-index: 2;
+  }
+
+  #catalog .row {
+    min-height: 48px;
+    margin-bottom: 12px;
+  }
+
+  #catalog .oils-list {
+    overflow-y: auto;
+    padding: 0;
+    max-height: 380px;
+  }
+
+  #catalog .oils-list a {
+    text-decoration: none;
+    color: #000000;
+    margin-bottom: 6px;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+  }
+
+  #catalog .oils-list a.list-group-item.active {
+    color: #ffffff;
+  }
+
+  #catalog .oils-list .list-group {
+    border-radius: 0;
+    margin-bottom: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    padding: 6px;
+  }
+
+  #catalog .oils-list .list-group .list-group-item {
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+  }
+
+  #catalog .oils-list .list-group .list-group-item:first-child {
+    border-top: none;
+  }
+
+  #catalog .oils-list .list-group .list-group-item:last-child {
+    border-radius: 0;
+  }
+
+  @media (min-width: 800px) {
+    #catalog .oil-description {
+      -webkit-column-count: 3;
+      -moz-column-count: 3;
+      column-count: 3;
+    }
+  }
+
+  .img-rounded {
+    border-radius: 3px;
+  }
+
+  #catalog p:last-child {
+    margin-bottom: 0;
+  }
+
+  #catalog .oil-description img {
+    width: 100%;
+  }
+
+  .form-signin {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+  }
+  .form-signin .checkbox {
+    font-weight: 400;
+  }
+  .form-signin .form-control {
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+  }
+  .form-signin .form-control:focus {
+    z-index: 2;
+  }
+  .form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  .volatilityTitle {
+    padding: 16px 24px;
+    margin-bottom: 6px;
+    border-radius: 3px;
+    color: #fff;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.2);
+
+    h2 {
+      margin: 0;
+    }
+  }
+
+  .oilPreview {
+    a {
+      color: #484343;
+      font-size: 16px;
+      display: block;
+      transition: color 0.2s;
+      position: relative;
+      border-radius: 3px;
+      overflow: hidden;
+
+      .oil-title {
+        width: 100%;
+        padding: 10px 15px;
+        display: block;
+        background-color: #fff;
+      }
+
+      &:hover {
+        color: #000;
+        text-decoration: none;
+
+        img {
+          filter: grayscale(0);
+        }
+      }
+
+      img {
+        filter: grayscale(30%);
+        transition: filter 0.2s;
+      }
+    }
+  }
+
+  .highVolatility {
+    .volatilityTitle,
+    .oilButton.active {
+      background-color: rgb(222, 105, 28);
+    }
+    .oilButton {
+
+      &.active {
+        background-color: rgb(222, 105, 28);
+      }
+
+      &.available {
+        background-color: rgba(255, 147, 76, 0.6);
+      }
+    }
+  }
+
+  .averageVolatility {
+    .volatilityTitle,
+    .oilButton.active {
+      background-color: rgb(25, 148, 220);
+    }
+    .oilButton {
+
+      &.active {
+        background-color: rgb(25, 148, 220);
+      }
+
+      &.available {
+        background-color: rgba(48, 179, 255, 0.6);
+      }
+    }
+  }
+
+  .lowVolatility {
+    .volatilityTitle,
+    .oilButton.active {
+      background-color: rgb(143, 31, 218);
+    }
+    .oilButton {
+
+      &.active {
+        background-color: rgb(143, 31, 218);
+      }
+
+      &.available {
+        background-color: rgba(192, 97, 255, 0.6);
+      }
+    }
+  }
+
+  .volatilityOils {
+    margin: 0 3px;
+  }
+
+  .oilButton {
+    margin: 2px;
+    padding: 6px 12px 10px 12px;
+    color: #6d6d6d;
+    display: inline-block;
+    vertical-align: bottom;
+    cursor: pointer;
+    border-radius: 3px;
+    user-select: none;
+    text-align: center;
+    background-color: rgba(0,0,0,0.05);
+
+    .propertySup {
+      &::before {
+        opacity: 0.5;
+        content: '(';
+      }
+
+      &::after {
+        opacity: 0.5;
+        content: ')';
+      }
+    }
+
+    .property {
+      display: block;
+      font-size: 10px;
+      line-height: 2px;
+      height: 0;
+
+      &::before {
+        opacity: 0.5;
+        content: '(';
+      }
+
+      &::after {
+        opacity: 0.5;
+        content: ')';
+      }
+
+      &:empty {
+        &::before {
+          content: '';
+        }
+
+        &::after {
+          content: '';
+        }
+      }
+
+      span:last-child {
+        display: none;
+      }
+    }
+
+    &.active {
+      color: #fff;
+      text-shadow: 1px 1px rgba(0, 0, 0, 0.2);
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    &.available {
+      color: #fff;
+      text-shadow: 1px 1px rgba(0, 0, 0, 0.2);
+    }
+
+    &.disabled {
+      text-shadow: none;
+    }
+  }
+}
