@@ -7,7 +7,8 @@ namespace App\Repositories\Interfaces;
  * Репозиторий инкапсулирует логику получения ряда моделей связанных с маслами 
  *
  */
-interface OilRepositoryInterface {
+interface OilRepositoryInterface 
+{
     public function oilList(): object;
     public function propertyList(): object;
     public function oilPropertyMap(): array;

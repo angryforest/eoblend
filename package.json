@@ -1,38 +1,35 @@
 {
-    "private": true,
-    "scripts": {
-        "dev": "npm run development",
-        "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "watch": "npm run development -- --watch",
-        "watch-poll": "npm run watch -- --watch-poll",
-        "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "prod": "npm run production",
-        "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
-    },
-    "devDependencies": {
-        "axios": "^0.18",
-        "bootstrap": "^4.1.0",
-        "cross-env": "^5.1",
-        "jquery": "^3.2",
-        "laravel-mix": "^4.0.7",
-        "lodash": "^4.17.5",
-        "popper.js": "^1.12",
-        "resolve-url-loader": "^2.3.1",
-        "sass": "^1.15.2",
-        "sass-loader": "^7.1.0",
-        "vue": "^2.5.17"
-    },
-    "dependencies": {
-        "del": "^5.0.0",
-        "gulp": "^3.9.1",
-        "gulp-autoprefixer": "^6.1.0",
-        "gulp-concat": "^2.6.1",
-        "gulp-imagemin": "^6.0.0",
-        "gulp-minify-css": "^1.2.4",
-        "gulp-rename": "^1.4.0",
-        "gulp-sass": "^4.0.2",
-        "gulp-size": "^3.0.0",
-        "gulp-svgmin": "^2.2.0",
-        "gulp-uglify": "^3.0.2"
-    }
+  "private": true,
+  "scripts": {
+    "dev": "nuxt -c client/nuxt.config.js",
+    "build": "nuxt build -c client/nuxt.config.js",
+    "start": "nuxt start -c client/nuxt.config.js",
+    "lint": "eslint --fix --ext .js,.vue client/"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.32",
+    "@fortawesome/free-brands-svg-icons": "^5.15.1",
+    "@fortawesome/free-regular-svg-icons": "^5.15.1",
+    "@fortawesome/free-solid-svg-icons": "^5.15.1",
+    "@fortawesome/vue-fontawesome": "^2.0.0",
+    "@nuxtjs/router": "^1.5.0",
+    "axios": "^0.21.0",
+    "bootstrap": "^4.5.3",
+    "dotenv": "^8.2.0",
+    "jquery": "^3.5.1",
+    "js-cookie": "^2.2.1",
+    "nuxt": "^2.14.7",
+    "popper.js": "^1.16.1",
+    "sweetalert2": "^10.10.4",
+    "vform": "^1.0.1",
+    "vue-i18n": "^8.22.2"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.12.1",
+    "@nuxtjs/eslint-config": "^5.0.0",
+    "eslint": "^7.14.0",
+    "fs-extra": "^9.0.1",
+    "node-sass": "^5.0.0",
+    "sass-loader": "^10.1.0"
+  }
 }

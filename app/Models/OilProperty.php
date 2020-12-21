@@ -5,8 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class OilProperty extends Model {
-
+class OilProperty extends Model 
+{
     use SoftDeletes;
 
     protected $table = 'oil_properties';
