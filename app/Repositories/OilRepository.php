@@ -10,23 +10,28 @@ use App\Models\Specification;
 
 use App\Repositories\Interfaces\OilRepositoryInterface;
 
-class OilRepository implements OilRepositoryInterface {
+class OilRepository implements OilRepositoryInterface 
+{
 
-    public function oilList(): object {
+    public function oilList(): object 
+    {
         return Oil::all();
     }
 
     // TODO передовать и выводить список комплиментарных масел 
-    public function getOilData($name): object {
+    public function getOilData($name): object 
+    {
         $oil = Oil::where(['url' => $name])->first();
         $specification = Specification::where(['oil_id' => $oil->id])->first();
         $specification->cover = $oil->cover;
         return $specification;
     }
 
-    public function oilCompatibilityMap(): array {
+    public function oilCompatibilityMap(): array 
+    {
         $map = [];
-        foreach (Compatibility::all() as $item) {
+        foreach (Compatibility::all() as $item) 
+        {
             if(!@$map[$item->oil_id])
                 $map[$item->oil_id] = [];
             $map[$item->oil_id][] = $item->pair_oil_id;
@@ -34,13 +39,16 @@ class OilRepository implements OilRepositoryInterface {
         return $map;
     }
 
-    public function propertyList(): object {
+    public function propertyList(): object 
+    {
         return Property::all();
     }
 
-    public function oilPropertyMap(): array {
+    public function oilPropertyMap(): array 
+    {
         $map = [];
-        foreach (OilProperty::all() as $item) {
+        foreach (OilProperty::all() as $item) 
+        {
             if(!@$map[$item->oil_id])
                 $map[$item->oil_id] = [];
             $map[$item->oil_id][$item->property_id] = true;

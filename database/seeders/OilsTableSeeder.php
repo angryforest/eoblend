@@ -11,18 +11,21 @@ use App\Models\OilProperty;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class OilsTableSeeder extends Seeder {
+class OilsTableSeeder extends Seeder 
+{
     /**
      * Загрузка данных непосредственно касающихся эфирных масел
      *
      * @return void
      */
-    public function run() {
+    public function run() 
+    {
         $oilsMap = [];
 
         // Заполняем таблицу масел и таблицу описаний на русском языке
         $oils = json_decode(file_get_contents('json/oils.json', true));
-        foreach ($oils as $name => $oil) {
+        foreach ($oils as $name => $oil) 
+        {
             $oilModel = Oil::create([
                 'url'           => $name,
                 'eng_name'      => $oil->name,
@@ -50,8 +53,10 @@ class OilsTableSeeder extends Seeder {
         }
 
         // Заполняем таблицу сочетаний между маслами
-        foreach ($oils as $name => $oil) {
-            foreach ($oil->compatibility as $pair) {
+        foreach ($oils as $name => $oil) 
+        {
+            foreach ($oil->compatibility as $pair) 
+            {
                 Compatibility::create([
                     'oil_id' => $oilsMap[$name],
                     'pair_oil_id' => $oilsMap[$pair]
@@ -61,7 +66,8 @@ class OilsTableSeeder extends Seeder {
 
         // Заполняем таблицу свойств и создаём привязки свойств к конретным маслам
         $properties = json_decode(file_get_contents('json/properties.json', true));
-        foreach ($properties as $name => $property) {
+        foreach ($properties as $name => $property) 
+        {
             $propertyId = Property::create([
                 'eng_name'      => $property->eng_name,
                 'rus_name'      => $property->rus_name,
@@ -69,7 +75,8 @@ class OilsTableSeeder extends Seeder {
             ]);
 
 
-            foreach($property->oils as $oil) {
+            foreach($property->oils as $oil) 
+            {
                 OilProperty::create([
                     'oil_id'        =>  $oilsMap[$oil],
                     'property_id'   =>  $propertyId->id

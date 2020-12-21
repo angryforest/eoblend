@@ -5,8 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Compatibility extends Model {
-
+class Compatibility extends Model 
+{
     use SoftDeletes;
 
     protected $table = 'compatibility';
