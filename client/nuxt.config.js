@@ -82,16 +82,6 @@ module.exports = {
     '@nuxtjs/router',
   ],
 
-  proxy: {
-    "/api": {
-      "target": "https://eoblend.ru",
-      "pathRewrite": {
-        "^/api": ""
-      },
-      "secure": false
-    }
-  },
-
   build: {
     extractCSS: true,
     babel: {

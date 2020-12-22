@@ -1,8 +1,5 @@
 {
    "aphrodisiac":{
-      "eng_name":"Aphrodisiac",
-      "rus_name":"Афродизиак",
-      "rus_description":"Для создания интимной атмосферы",
       "oils":[
          "anise",
          "orange",
@@ -29,12 +26,16 @@
          "sandalwood",
          "tui",
          "salvia-sclarea"
-      ]
+      ],
+      "name":{
+         "ru":"Афродизиак",
+         "en":"Aphrodisiac"
+      },
+      "description":{
+         "ru":"Для создания интимной атмосферы"
+      }
    },
    "antiseptic":{
-      "eng_name":"Antiseptic",
-      "rus_name":"Антисептик",
-      "rus_description":"Антибактериальный эффект",
       "oils":[
          "anise",
          "orange",
@@ -82,12 +83,16 @@
          "salvia-sclarea",
          "salvia-officinalis",
          "eucalyptus"
-      ]
+      ],
+      "name":{
+         "ru":"Антисептик",
+         "en":"Antiseptic"
+      },
+      "description":{
+         "ru":"Антибактериальный эффект"
+      }
    },
    "insecticide":{
-      "eng_name":"Insecticide",
-      "rus_name":"Инсектицид",
-      "rus_description":"Против комаров и мошек",
       "oils":[
          "anise",
          "carnation",
@@ -98,12 +103,16 @@
          "juniper",
          "patchouli",
          "eucalyptus"
-      ]
+      ],
+      "name":{
+         "ru":"Инсектицид",
+         "en":"Insecticide"
+      },
+      "description":{
+         "ru":"Против комаров и мошек"
+      }
    },
    "antidepressant":{
-      "eng_name":"Antidepressant",
-      "rus_name":"Антидепрессант",
-      "rus_description":"Для поднятия настроения",
       "oils":[
          "orange",
          "basil",
@@ -127,12 +136,16 @@
          "daisy",
          "pine",
          "salvia-sclarea"
-      ]
+      ],
+      "name":{
+         "ru":"Антидепрессант",
+         "en":"Antidepressant"
+      },
+      "description":{
+         "ru":"Для поднятия настроения"
+      }
    },
    "anti-cellulite":{
-      "eng_name":"Anti-cellulite",
-      "rus_name":"Антицеллюлитное",
-      "rus_description":"От целлюлита, для похудения",
       "oils":[
          "orange",
          "geranium",
@@ -153,12 +166,16 @@
          "rosemary",
          "tui",
          "fennel"
-      ]
+      ],
+      "name":{
+         "ru":"Антицеллюлитное",
+         "en":"Anti-cellulite"
+      },
+      "description":{
+         "ru":"От целлюлита и для похудения"
+      }
    },
    "sedative":{
-      "eng_name":"Sedative",
-      "rus_name":"Успокоительное",
-      "rus_description":"Для расслабления, при бессоннице",
       "oils":[
          "anise",
          "orange",
@@ -178,12 +195,16 @@
          "savory",
          "tea-tree",
          "salvia-sclarea"
-      ]
+      ],
+      "name":{
+         "ru":"Успокоительное",
+         "en":"Sedative"
+      },
+      "description":{
+         "ru":"Для расслабления и при бессоннице"
+      }
    },
    "anesthetic":{
-      "eng_name":"Anesthetic",
-      "rus_name":"Анестетик",
-      "rus_description":"От болей в мышцах, при усталости",
       "oils":[
          "jasmine",
          "ginger",
@@ -201,6 +222,13 @@
          "tui",
          "salvia-sclarea",
          "eucalyptus"
-      ]
+      ],
+      "name":{
+         "ru":"Анестетик",
+         "en":"Anesthetic"
+      },
+      "description":{
+         "ru":"От болей в мышцах и при усталости"
+      }
    }
 }
