@@ -3,7 +3,7 @@
     <router-link :to="getPath('welcome')" 
                  class="navbar-brand">
       <img class="logo" 
-           src="~/assets/img/logo.png">
+           src="/img/logo.png">
       <span class="mainLabel">
         {{ appName }}
       </span>

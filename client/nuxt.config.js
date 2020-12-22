@@ -2,7 +2,7 @@ require('dotenv').config()
 const { join } = require('path')
 const { copySync, removeSync } = require('fs-extra')
 
-console.log(global.url)
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
 module.exports = {
   ssr: true,
@@ -42,7 +42,7 @@ module.exports = {
       { 
         rel: 'icon', 
         type: 'image/x-icon', 
-        href: '/favicon.ico',
+        href: '/img/favicon.ico',
       },
     ],
   },
@@ -81,6 +81,16 @@ module.exports = {
   modules: [
     '@nuxtjs/router',
   ],
+
+  proxy: {
+    "/api": {
+      "target": "https://eoblend.ru",
+      "pathRewrite": {
+        "^/api": ""
+      },
+      "secure": false
+    }
+  },
 
   build: {
     extractCSS: true,
