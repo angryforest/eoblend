@@ -28,8 +28,8 @@ class OilsTableSeeder extends Seeder
         {
             $oilModel = Oil::create([
                 'url'           => $name,
-                'eng_name'      => $oil->name,
-                'rus_name'      => $oil->rus_name,
+                'eng_name'      => $oil->articles->catalog->name->en,
+                'rus_name'      => $oil->articles->catalog->name->ru,
                 'volatility'    => $oil->volatility,
                 'cover'         => '/img/oils/'.$name.'.jpg'
             ]);
@@ -41,13 +41,13 @@ class OilsTableSeeder extends Seeder
             Specification::create([
                 'oil_id'            => $oilModel->id,
                 'language'          => 'rus',
-                'title'             => 'Эфирное масло '.$oil->rus_genitive,
+                'title'             => 'Эфирное масло '.$oil->articles->catalog->genitive->ru,
                 'description'       => '', // TODO добавить описание для СЕО
-                'plant'             => $oil->articles->catalog->plant,
-                'aroma'             => $oil->articles->catalog->aroma,
-                'properties'        => $oil->articles->catalog->properties,
-                'methods'           => $oil->articles->catalog->methods,
-                'contraindications' => $oil->articles->catalog->contraindications
+                'plant'             => $oil->articles->catalog->plant->ru,
+                'aroma'             => $oil->articles->catalog->aroma->ru,
+                'properties'        => $oil->articles->catalog->properties->ru,
+                'methods'           => $oil->articles->catalog->methods->ru,
+                'contraindications' => $oil->articles->catalog->contraindications->ru
             ]);
 
         }
@@ -69,9 +69,9 @@ class OilsTableSeeder extends Seeder
         foreach ($properties as $name => $property) 
         {
             $propertyId = Property::create([
-                'eng_name'      => $property->eng_name,
-                'rus_name'      => $property->rus_name,
-                'rus_description'    => $property->rus_description
+                'eng_name'      => $property->name->en,
+                'rus_name'      => $property->name->ru,
+                'rus_description'    => $property->description->ru
             ]);
 
 
