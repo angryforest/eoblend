@@ -10,7 +10,7 @@
           </div>
           <div class="panel-body oil-description">
             <p>
-              <img :src="require('~/assets' + oil.cover)"
+              <img :src="oil.cover"
                    :alt="locale === 'ru' ? oil.rus_name : oil.eng_name"
                    class="img-rounded">
             </p>

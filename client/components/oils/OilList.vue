@@ -8,7 +8,7 @@
                :key="oil.id">
             <a :href="'oils/' + oil.url"
                :title="locale === 'ru' ? oil.rus_name : oil.eng_name">
-              <img :src="require('~/assets' + oil.cover)"
+              <img :src="oil.cover"
                    :alt="locale === 'ru' ? oil.rus_name : oil.eng_name"
                    width="100%">
               <span class="oil-title">
