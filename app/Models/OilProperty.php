@@ -14,12 +14,12 @@ class OilProperty extends Model
     protected $dates = [
         'created_at',
         'updated_at',
-        'deleted_at'
+        'deleted_at',
     ];
 
     protected $fillable = [
         'oil_id',
-        'property_id'
+        'property_id',
     ];
 
     protected $hidden = [];

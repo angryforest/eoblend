@@ -14,14 +14,18 @@ class Compatibility extends Model
     protected $dates = [
         'created_at',
         'updated_at',
-        'deleted_at'
+        'deleted_at',
     ];
 
     protected $fillable = [
         'oil_id',
         'pair_oil_id',
-        'compatibility'
+        'compatibility',
     ];
 
-    protected $hidden = [];
+    protected $hidden = [
+        'created_at',
+        'updated_at',
+        'deleted_at',
+    ];
 }
