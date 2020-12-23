@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
+use App\Models\BaseModel;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Oil extends Model 
+class Oil extends BaseModel 
 {  
     use SoftDeletes;
 
@@ -14,7 +15,7 @@ class Oil extends Model
     protected $dates = [
         'created_at',
         'updated_at',
-        'deleted_at'
+        'deleted_at',
     ];
 
     protected $fillable = [
@@ -22,8 +23,12 @@ class Oil extends Model
         'eng_name',
         'rus_name',
         'volatility',
-        'cover'
+        'cover',
     ];
 
-    protected $hidden = [];
+    protected $hidden = [
+        'created_at',
+        'updated_at',
+        'deleted_at',
+    ];
 }

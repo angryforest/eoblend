@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
+use App\Models\BaseModel;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Specification extends Model 
+class Specification extends BaseModel 
 {
     use SoftDeletes;
 
@@ -14,7 +15,7 @@ class Specification extends Model
     protected $dates = [
         'created_at',
         'updated_at',
-        'deleted_at'
+        'deleted_at',
     ];
 
     protected $fillable = [
@@ -26,8 +27,12 @@ class Specification extends Model
         'aroma',
         'properties',
         'methods',
-        'contraindications'
+        'contraindications',
     ];
 
-    protected $hidden = [];
+    protected $hidden = [
+        'created_at',
+        'updated_at',
+        'deleted_at',
+    ];
 }
