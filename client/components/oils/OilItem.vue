@@ -2,7 +2,7 @@
   <div id="catalog">
     <div class="row">
       <div class="col-md-12">
-        <div class="panel panel-default">
+        <div v-if="oil.specification" class="panel panel-default">
           <div class="panel-heading mbot3">
             <h1>
               {{ oil.title }}
@@ -11,14 +11,14 @@
           <div class="panel-body oil-description">
             <p>
               <img :src="oil.cover"
-                   :alt="locale === 'ru' ? oil.rus_name : oil.eng_name"
+                   :alt="oil.specification[locale].name"
                    class="img-rounded">
             </p>
-            <p>{{ oil.plant }}</p>
-            <p>{{ oil.aroma }}</p>
-            <p>{{ oil.properties }}</p>
-            <p>{{ oil.methods }}</p>
-            <p>{{ oil.contraindications }}</p>
+            <p>{{ oil.specification[locale].plant }}</p>
+            <p>{{ oil.specification[locale].aroma }}</p>
+            <p>{{ oil.specification[locale].properties }}</p>
+            <p>{{ oil.specification[locale].methods }}</p>
+            <p>{{ oil.specification[locale].contraindications }}</p>
           </div>
         </div>
       </div>
@@ -34,6 +34,25 @@
 
     }),
 
+    head () {
+      if(process.server) {
+        return { 
+          title: this.oil.specification[this.locale].title,
+          meta: [ 
+            {
+              hid: 'description', 
+              name: 'description', 
+              content: this.oil.specification[this.locale].title
+            }
+          ],
+        }
+      }
+      else {
+        return { 
+        }
+      }
+    },
+
     computed: {
       ...mapGetters({
         locale: 'lang/locale',
@@ -42,9 +61,7 @@
     },
 
     async fetch() {
-      // Избегаем повторной загрузки данных
-      if(!Object.keys(this.oil).length)
-        await this.init()
+      await this.init()
     },
 
     methods: {

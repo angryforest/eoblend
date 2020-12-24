@@ -1,11 +1,5 @@
 <template>
   <article class="container-fluid">
-
-<!--     <div class="row mbot3">
-      <div class="col-md-12">
-        <h1>{{ $t('handbook_tagline') }}</h1>
-      </div>
-    </div> -->
     
     <oil-item />
   </article>

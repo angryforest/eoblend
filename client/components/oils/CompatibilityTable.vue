@@ -37,7 +37,7 @@
                     :key="oil.id"
                     :class="oilButtonClass(oil.id)"
                     @click="toggleOil(oil.id)">
-                  {{ locale === 'ru' ? oil.rus_name : oil.eng_name }}
+                  {{ oil.name[locale] }}
                   <span class="property">{{ oilProps(oil.id).join(', ') }}</span>
               </span>
             </div>

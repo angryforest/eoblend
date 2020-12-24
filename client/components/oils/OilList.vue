@@ -6,15 +6,15 @@
           <div class="col-md-3 mbot3 oilPreview"
                v-for="oil in oils" 
                :key="oil.id">
-            <a :href="'oils/' + oil.url"
-               :title="locale === 'ru' ? oil.rus_name : oil.eng_name">
+            <router-link :to="'oils/' + oil.url"
+               :title="oil.name[locale]">
               <img :src="oil.cover"
-                   :alt="locale === 'ru' ? oil.rus_name : oil.eng_name"
+                   :alt="oil.name[locale]"
                    width="100%">
               <span class="oil-title">
-                {{ locale === 'ru' ? oil.rus_name : oil.eng_name }}
+                {{ oil.name[locale] }}
               </span>
-            </a>
+            </router-link>
           </div>
         </div>
       </div>
