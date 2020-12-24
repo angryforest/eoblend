@@ -713,7 +713,7 @@
          "catalog":{
             "name":{
                "ru":"Душица",
-               "en":"For periodontal disease in 5 grams of honey, add 2 drops of ether, and dissolve in a glass of warm water and rinse 2-3 times a day. To strengthen hair follicles, dilute 5 drops of grapefruit for every 15 ml of shampoo. Compresses will help to get rid of liver diseases, melt 15 g of fatty vegetable oil and 4-5 drops of grapefruit in a water bath, apply a napkin soaked in this solution to the right hypochondrium, and fix it with plastic wrap for 15 minutes.",
+               "en":"Oregano",
                "de":"Oregano",
                "fr":"Origan",
                "es":"Orégano",
@@ -721,7 +721,7 @@
             },
             "genitive":{
                "ru":"Эфирное масло душицы",
-               "en":"Not recommended to apply before sun exposure. The dosage should be observed and a skin test done before applying the oil.",
+               "en":"Oregano essential oil",
                "de":"Oregano ätherisches Öl",
                "fr":"Huile essentielle d'origan",
                "es":"Aceite esencial de orégano",
@@ -729,7 +729,7 @@
             },
             "plant":{
                "ru":"Душица — многолетнее травянистое растение, настолько неприхотливое и стойкое, что выдерживает даже Сибирские морозы и сильные засухи. Родиной произрастания принято считать Испанию и Средиземноморье. Из овальных серо-зеленых листьев и маленьких бледно-пурпурных цветов путем паровой дистилляции получают эфирное масло.",
-               "en":"It has antiseptic, anti-inflammatory, soothing, bactericidal, expectorant, antispasmodic, stimulating, antioxidant, anti-spasmodic, healing properties. It has a beneficial effect on the body with chronic fatigue syndrome, depression, epilepsy, nervous tics, sprains, cellulite, phantom pains, hangovers, hypertension, low immunity, colds, allergies. Suitable for problem skin and massage.",
+               "en":"Oregano is a perennial herb, so unpretentious and persistent that it even withstands Siberian frosts and severe droughts. The homeland of growth is considered to be Spain and the Mediterranean. The essential oil is obtained from oval gray-green leaves and small pale purple flowers by steam distillation.",
                "de":"Oregano ist ein mehrjähriges Kraut, das so unprätentiös und hartnäckig ist, dass es sogar sibirischen Frösten und schweren Dürren standhält. Die Heimat des Wachstums gilt als Spanien und das Mittelmeer. Das ätherische Öl wird durch Wasserdampfdestillation aus ovalen graugrünen Blättern und kleinen hellvioletten Blüten gewonnen.",
                "fr":"L'origan est une plante herbacée vivace, si sans prétention et persistante qu'elle résiste même aux gelées sibériennes et aux sécheresses sévères. La patrie de la croissance est considérée comme l'Espagne et la Méditerranée. L'huile essentielle est obtenue à partir de feuilles ovales gris-vert et de petites fleurs violet pâle par distillation à la vapeur.",
                "es":"El orégano es una hierba perenne, tan modesta y persistente que incluso resiste las heladas siberianas y las sequías severas. Se considera que la patria del crecimiento es España y el Mediterráneo. El aceite esencial se obtiene a partir de hojas ovaladas de color verde grisáceo y pequeñas flores de color púrpura pálido mediante destilación al vapor.",
@@ -737,7 +737,7 @@
             },
             "aroma":{
                "ru":"Древесно-земляной, немного пряный аромат, насыщен свежим и терпким оттенком.",
-               "en":"During a sore throat, eat 2 drops of ether with a spoonful of honey, recovery will come faster. For insect bites, spot the affected skin area. To get rid of toothache, dilute a spoonful of salt and 2 drops of oregano oil in a glass of warm water.",
+               "en":"Woody earthy, slightly spicy aroma, saturated with a fresh and tart shade.",
                "de":"Holziges, erdiges, leicht würziges Aroma, gesättigt mit einem frischen und säuerlichen Farbton.",
                "fr":"Arôme boisé terreux, légèrement épicé, saturé d'une nuance fraîche et acidulée.",
                "es":"Aroma amaderado terroso, ligeramente picante, saturado con un tono fresco y ácido.",
@@ -745,7 +745,7 @@
             },
             "properties":{
                "ru":"Обладает антисептическими, противовоспалительными, успокаивающими, бактерицидными, отхаркивающими, спазмолитическими, стимулирующими, антиоксидантными, противоспазматическими, заживляющими свойствами. Оказывает благотворное влияние на организм при синдроме хронической усталости, депрессии, эпилепсии, нервном тике, растяжении связок, целлюлите, фантомных болях, похмелье, гипертонии, сниженном иммунитете, простуде, аллергии. Подходит для проблемной кожи, а также массажа.",
-               "en":"It is forbidden to use during pregnancy, children under 6 years of age, with diseases of the cardiovascular system. The dosage should be observed and a skin test done before using the oil.",
+               "en":"It has antiseptic, anti-inflammatory, soothing, bactericidal, expectorant, antispasmodic, stimulating, antioxidant, anti-spasmodic, healing properties. It has a beneficial effect on the body with chronic fatigue syndrome, depression, epilepsy, nervous tics, sprains, cellulite, phantom pains, hangovers, hypertension, low immunity, colds, allergies. Suitable for problem skin and massage.",
                "de":"Es hat antiseptische, entzündungshemmende, beruhigende, bakterizide, schleimlösende, krampflösende, stimulierende, antioxidative, krampflösende und heilende Eigenschaften. Es hat eine positive Wirkung auf den Körper mit chronischem Müdigkeitssyndrom, Depressionen, Epilepsie, nervösen Tics, Verstauchungen, Cellulite, Phantomschmerzen, Kater, Bluthochdruck, geringer Immunität, Erkältungen, Allergien. Geeignet für Problemhaut und Massage.",
                "fr":"Il a des propriétés antiseptiques, anti-inflammatoires, apaisantes, bactéricides, expectorantes, antispasmodiques, stimulantes, antioxydantes, antispasmodiques, cicatrisantes. Il a un effet bénéfique sur le corps avec syndrome de fatigue chronique, dépression, épilepsie, tics nerveux, entorses, cellulite, douleurs fantômes, gueule de bois, hypertension, faible immunité, rhumes, allergies. Convient aux peaux à problèmes et aux massages.",
                "es":"Tiene propiedades antisépticas, antiinflamatorias, calmantes, bactericidas, expectorantes, antiespasmódicas, estimulantes, antioxidantes, antiespasmódicas y cicatrizantes. Tiene un efecto beneficioso en el organismo con síndrome de fatiga crónica, depresión, epilepsia, tics nerviosos, esguinces, celulitis, dolores fantasmas, resacas, hipertensión, inmunidad reducida, resfriados, alergias. Indicado para pieles problemáticas y masajes.",
@@ -753,6 +753,7 @@
             },
             "methods":{
                "ru":"Во время ангины съешьте с ложкой меда 2 капли эфира, выздоровление наступит быстрее. При укусах насекомых точечно обработайте пораженные участки кожи. Для избавления от зубной боли разведите в стакане теплой воды ложку соли и 2 капли масла душицы.",
+               "en":"During a sore throat, eat 2 drops of ether with a spoonful of honey, recovery will come faster. For insect bites, spot the affected skin area. To get rid of toothache, dilute a spoonful of salt and 2 drops of oregano oil in a glass of warm water.",
                "de":"Bei Halsschmerzen 2 Tropfen Äther mit einem Löffel Honig essen, die Genesung erfolgt schneller. Bei Insektenstichen den betroffenen Hautbereich erkennen. Um Zahnschmerzen zu lindern, verdünnen Sie einen Löffel Salz und 2 Tropfen Oreganoöl in einem Glas warmem Wasser.",
                "fr":"Lors d'un mal de gorge, mangez 2 gouttes d'éther avec une cuillerée de miel, la récupération viendra plus vite. Pour les piqûres d'insectes, repérez la peau affectée. Pour soulager les maux de dents, diluez une cuillerée de sel et 2 gouttes d'huile d'origan dans un verre d'eau tiède.",
                "es":"Durante el dolor de garganta, ingiera 2 gotas de éter con una cucharada de miel, la recuperación será más rápida. Para las picaduras de insectos, localice el área de la piel afectada. Para aliviar el dolor de muelas, diluya una cucharada de sal y 2 gotas de aceite de orégano en un vaso de agua tibia.",
@@ -760,6 +761,7 @@
             },
             "contraindications":{
                "ru":"Запрещено использовать во время беременности, детям не достигшим 6 летнего возраста, при заболеваниях сердечно-сосудистой системы. Следует соблюдать дозировку и сделать кожную пробу перед применением масла.",
+               "en":"It is forbidden to use during pregnancy, children under 6 years of age, with diseases of the cardiovascular system. The dosage should be observed and a skin test done before using the oil.",
                "de":"Es ist verboten, Kinder unter 6 Jahren mit Erkrankungen des Herz-Kreislauf-Systems während der Schwangerschaft zu verwenden. Die Dosierung sollte vor dem Auftragen des Öls eingehalten und ein Hauttest durchgeführt werden.",
                "fr":"Il est interdit d'utiliser pendant la grossesse, les enfants de moins de 6 ans, atteints de maladies du système cardiovasculaire. La posologie doit être observée et un test cutané doit être effectué avant d'utiliser l'huile.",
                "es":"Está prohibido su uso durante el embarazo, niños menores de 6 años, con enfermedades del sistema cardiovascular. Se debe observar la dosis y realizar una prueba cutánea antes de usar el aceite.",
