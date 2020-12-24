@@ -21,7 +21,8 @@ class CreateSpecificationsTable extends Migration
             $table->softDeletes();
 
             $table->unsignedInteger('oil_id');
-            $table->enum('language', ['eng', 'rus']);
+            $table->enum('language', ['ru', 'en', 'de', 'fr', 'es', 'zh']);
+            $table->string('name', 128)->nullable();
             $table->string('title', 128)->nullable();
             $table->string('description', 256)->nullable();
             $table->text('plant')->nullable();

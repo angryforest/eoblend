@@ -20,8 +20,6 @@ class Oil extends BaseModel
 
     protected $fillable = [
         'url',
-        'eng_name',
-        'rus_name',
         'volatility',
         'cover',
     ];

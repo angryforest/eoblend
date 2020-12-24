@@ -28,28 +28,28 @@ class OilsTableSeeder extends Seeder
         {
             $oilModel = Oil::create([
                 'url'           => $name,
-                'eng_name'      => $oil->articles->catalog->name->en,
-                'rus_name'      => $oil->articles->catalog->name->ru,
                 'volatility'    => $oil->volatility,
-                'cover'         => '/img/oils/'.$name.'.jpg'
+                'cover'         => '/img/oils/'.$name.'.jpg',
             ]);
 
             // Этот словарь поможет сопоставить имена с идентификаторами
             $oilsMap[$name] = $oilModel->id;
             $oilsMap[$oilModel->id] = $name;
 
-            Specification::create([
-                'oil_id'            => $oilModel->id,
-                'language'          => 'rus',
-                'title'             => 'Эфирное масло '.$oil->articles->catalog->genitive->ru,
-                'description'       => '', // TODO добавить описание для СЕО
-                'plant'             => $oil->articles->catalog->plant->ru,
-                'aroma'             => $oil->articles->catalog->aroma->ru,
-                'properties'        => $oil->articles->catalog->properties->ru,
-                'methods'           => $oil->articles->catalog->methods->ru,
-                'contraindications' => $oil->articles->catalog->contraindications->ru
-            ]);
-
+            foreach ($oil->articles->catalog->name as $lang => $value) {
+                Specification::create([
+                    'oil_id'            => $oilModel->id,
+                    'language'          => $lang,
+                    'name'              => $oil->articles->catalog->name->$lang,
+                    'title'             => $oil->articles->catalog->genitive->$lang,
+                    'description'       => '', // TODO добавить описание для СЕО
+                    'plant'             => $oil->articles->catalog->plant->$lang,
+                    'aroma'             => $oil->articles->catalog->aroma->$lang,
+                    'properties'        => $oil->articles->catalog->properties->$lang,
+                    'methods'           => $oil->articles->catalog->methods->$lang,
+                    'contraindications' => $oil->articles->catalog->contraindications->$lang,
+                ]);
+            }
         }
 
         // Заполняем таблицу сочетаний между маслами
@@ -59,7 +59,7 @@ class OilsTableSeeder extends Seeder
             {
                 Compatibility::create([
                     'oil_id' => $oilsMap[$name],
-                    'pair_oil_id' => $oilsMap[$pair]
+                    'pair_oil_id' => $oilsMap[$pair],
                 ]);
             }
         }
@@ -71,7 +71,7 @@ class OilsTableSeeder extends Seeder
             $propertyId = Property::create([
                 'eng_name'      => $property->name->en,
                 'rus_name'      => $property->name->ru,
-                'rus_description'    => $property->description->ru
+                'rus_description'    => $property->description->ru,
             ]);
 
 
@@ -79,7 +79,7 @@ class OilsTableSeeder extends Seeder
             {
                 OilProperty::create([
                     'oil_id'        =>  $oilsMap[$oil],
-                    'property_id'   =>  $propertyId->id
+                    'property_id'   =>  $propertyId->id,
                 ]);
             }
         }

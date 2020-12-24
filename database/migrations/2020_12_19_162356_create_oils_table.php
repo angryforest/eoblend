@@ -20,10 +20,8 @@ class CreateOilsTable extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            $table->string('url', 128)->nullable();
-            $table->string('eng_name', 128)->nullable();
-            $table->string('rus_name', 128)->nullable();
             $table->float('volatility');
+            $table->string('url', 128)->nullable();
             $table->string('cover', 128)->nullable();
         });
     }

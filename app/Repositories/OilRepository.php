@@ -12,19 +12,34 @@ use App\Repositories\Interfaces\OilRepositoryInterface;
 
 class OilRepository implements OilRepositoryInterface 
 {
-
+    // TODO Оптимизировать через кэш
     public function oilList(): object 
     {
-        return Oil::all();
+        $specification = Specification::select(['oil_id', 'name', 'language'])->get();
+        $specificationByOilId = [];
+        foreach ($specification as $spec)
+            $specificationByOilId[$spec->oil_id][$spec->language] = $spec->name;
+
+        $oils = Oil::all();
+        foreach ($oils as $index => $oil)
+            $oils[$index]->name = $specificationByOilId[$oil->id];
+
+        return $oils;
     }
 
     // TODO передовать и выводить список комплиментарных масел 
     public function getOilData($name): object 
     {
         $oil = Oil::where(['url' => $name])->first();
-        $specification = Specification::where(['oil_id' => $oil->id])->first();
-        $specification->cover = $oil->cover;
-        return $specification;
+
+        $specification = Specification::where(['oil_id' => $oil->id])->get();
+        $specificationByLang = [];
+        foreach ($specification as $spec)
+            $specificationByLang[$spec->language] = $spec;
+
+        $oil->specification = $specificationByLang;
+
+        return $oil;
     }
 
     public function oilCompatibilityMap(): array 

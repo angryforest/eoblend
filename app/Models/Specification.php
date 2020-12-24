@@ -20,6 +20,7 @@ class Specification extends BaseModel
 
     protected $fillable = [
         'oil_id',
+        'name',
         'language',
         'title',
         'description',
