@@ -12,7 +12,11 @@
       ],
       "name":{
          "ru":"Цветочные",
-         "en":"Floral"
+         "en":"Floral",
+         "de":"Blumen",
+         "fr":"Floral",
+         "es":"Floral",
+         "zh":"花香"
       }
    },
    "exotic":{
@@ -26,7 +30,11 @@
       ],
       "name":{
          "ru":"Экзотические",
-         "en":"Exotic"
+         "en":"Exotic",
+         "de":"Exotisch",
+         "fr":"Exotique",
+         "es":"Exótico",
+         "zh":"异国情调"
       }
    },
    "resin":{
@@ -39,7 +47,11 @@
       ],
       "name":{
          "ru":"Камеди",
-         "en":"Resin"
+         "en":"Resin",
+         "de":"Harz",
+         "fr":"Résine",
+         "es":"Resina",
+         "zh":"树脂类"
       }
    },
    "spices":{
@@ -56,10 +68,14 @@
       ],
       "name":{
          "ru":"Пряности",
-         "en":"Spices"
+         "en":"Spices",
+         "de":"Gewürze",
+         "fr":"Épices",
+         "es":"Especias",
+         "zh":"香料"
       }
    },
-   "woods":{
+   "trees":{
       "oils":[
          "cedar",
          "eucalyptus",
@@ -75,7 +91,11 @@
       ],
       "name":{
          "ru":"Деревья",
-         "en":"Woods"
+         "en":"Trees",
+         "de":"Bäume",
+         "fr":"Arbres",
+         "es":"Árboles",
+         "zh":"树木"
       }
    },
    "herbs":{
@@ -88,7 +108,11 @@
       ],
       "name":{
          "ru":"Травы",
-         "en":"Herbs"
+         "en":"Herbs",
+         "de":"Kräuter",
+         "fr":"Herbes",
+         "es":"Hierbas",
+         "zh":"草药"
       }
    },
    "citrus":{
@@ -105,7 +129,11 @@
       ],
       "name":{
          "ru":"Цитрусовые",
-         "en":"Citrus"
+         "en":"Citrus",
+         "de":"Zitrusfrüchte",
+         "fr":"Agrumes",
+         "es":"Agrios",
+         "zh":"柑橘类"
       }
    }
 }

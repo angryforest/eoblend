@@ -3,7 +3,9 @@
 
     <div class="row mbot3">
       <div class="col-md-12">
-        <h1>{{ $t('handbook_tagline') }}</h1>
+        <h1>
+          {{ $t('handbook_tagline') }}
+        </h1>
       </div>
     </div>
     
@@ -30,7 +32,7 @@
           {
             hid: 'description', 
             name: 'description', 
-            content: this.$t('handbook_description')
+            content: this.$t('handbook_description'),
           }
         ],
       }

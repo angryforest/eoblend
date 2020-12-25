@@ -6,13 +6,13 @@
           <div class="col-md-3 mbot3 oilPreview"
                v-for="oil in oils" 
                :key="oil.id">
-            <router-link :to="'oils/' + oil.url"
-               :title="oil.name[locale]">
-              <img :src="oil.cover"
-                   :alt="oil.name[locale]"
+            <router-link :to="'oils/' + oil.name"
+               :title="oil.data.name[locale]">
+              <img :src="'/img/oils/' + oil.name + '.jpg'"
+                   :alt="oil.data.name[locale]"
                    width="100%">
               <span class="oil-title">
-                {{ oil.name[locale] }}
+                {{ oil.data.name[locale] }}
               </span>
             </router-link>
           </div>

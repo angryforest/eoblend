@@ -29,10 +29,19 @@
       ],
       "name":{
          "ru":"Афродизиак",
-         "en":"Aphrodisiac"
+         "en":"Aphrodisiac",
+         "de":"Aphrodisiakum",
+         "fr":"Aphrodisiaque",
+         "es":"Afrodisiaco",
+         "zh":"春药"
       },
       "description":{
-         "ru":"Для создания интимной атмосферы"
+         "ru":"Для создания интимной атмосферы",
+         "en":"To create an intimate atmosphere",
+         "de":"Eine intime Atmosphäre schaffen",
+         "fr":"Pour créer une atmosphère intime",
+         "es":"Para crear un ambiente íntimo",
+         "zh":"营造亲密的氛围"
       }
    },
    "antiseptic":{
@@ -86,10 +95,19 @@
       ],
       "name":{
          "ru":"Антисептик",
-         "en":"Antiseptic"
+         "en":"Antiseptic",
+         "de":"Antiseptikum",
+         "fr":"Antiseptique",
+         "es":"Antiséptico",
+         "zh":"防腐剂"
       },
       "description":{
-         "ru":"Антибактериальный эффект"
+         "ru":"Антибактериальный эффект",
+         "en":"Antibacterial effect",
+         "de":"Antibakterielle Wirkung",
+         "fr":"Effet antibactérien",
+         "es":"Efecto antibacteriano",
+         "zh":"抗菌作用"
       }
    },
    "insecticide":{
@@ -106,10 +124,19 @@
       ],
       "name":{
          "ru":"Инсектицид",
-         "en":"Insecticide"
+         "en":"Insecticide",
+         "de":"Insektizid",
+         "fr":"Insecticide",
+         "es":"Insecticida",
+         "zh":"杀虫剂"
       },
       "description":{
-         "ru":"Против комаров и мошек"
+         "ru":"Против насекомых",
+         "en":"Against insects",
+         "de":"Gegen Insekten",
+         "fr":"Contre les insectes",
+         "es":"Contra insectos",
+         "zh":"对抗昆虫"
       }
    },
    "antidepressant":{
@@ -139,10 +166,19 @@
       ],
       "name":{
          "ru":"Антидепрессант",
-         "en":"Antidepressant"
+         "en":"Antidepressant",
+         "de":"Antidepressivum",
+         "fr":"Antidépresseur",
+         "es":"Antidepresivo",
+         "zh":"抗抑郁药"
       },
       "description":{
-         "ru":"Для поднятия настроения"
+         "ru":"Для поднятия настроения",
+         "en":"To set the mood",
+         "de":"Die Stimmung einstellen",
+         "fr":"Pour créer l'ambiance",
+         "es":"Para establecer el estado de ánimo",
+         "zh":"设定心情"
       }
    },
    "anti-cellulite":{
@@ -169,10 +205,19 @@
       ],
       "name":{
          "ru":"Антицеллюлитное",
-         "en":"Anti-cellulite"
+         "en":"Anti-cellulite",
+         "de":"Anti-Cellulite",
+         "fr":"Anti cellulite",
+         "es":"Anticelulitis",
+         "zh":"消脂"
       },
       "description":{
-         "ru":"От целлюлита и для похудения"
+         "ru":"Против целлюлита и для похудение",
+         "en":"Anti-cellulite and slimming",
+         "de":"Anti-Cellulite und Abnehmen",
+         "fr":"Anti-cellulite et minceur",
+         "es":"Anticelulítico y adelgazante",
+         "zh":"消脂瘦身"
       }
    },
    "sedative":{
@@ -198,10 +243,19 @@
       ],
       "name":{
          "ru":"Успокоительное",
-         "en":"Sedative"
+         "en":"Sedative",
+         "de":"Beruhigungsmittel",
+         "fr":"Sédatif",
+         "es":"Sedante",
+         "zh":"镇静剂"
       },
       "description":{
-         "ru":"Для расслабления и при бессоннице"
+         "ru":"Для расслабления и при бессоннице",
+         "en":"For relaxation and insomnia",
+         "de":"Für Entspannung und Schlaflosigkeit",
+         "fr":"Pour la relaxation et l'insomnie",
+         "es":"Para la relajación y el insomnio",
+         "zh":"放松和失眠"
       }
    },
    "anesthetic":{
@@ -225,10 +279,19 @@
       ],
       "name":{
          "ru":"Анестетик",
-         "en":"Anesthetic"
+         "en":"Anesthetic",
+         "de":"Narkose",
+         "fr":"Anesthésique",
+         "es":"Anestésico",
+         "zh":"麻药"
       },
       "description":{
-         "ru":"От болей в мышцах и при усталости"
+         "ru":"От болей в мышцах и при усталости",
+         "en":"For muscle pain and fatigue",
+         "de":"Bei Muskelschmerzen und Müdigkeit",
+         "fr":"Pour les douleurs musculaires et la fatigue",
+         "es":"Para el dolor muscular y la fatiga",
+         "zh":"对于肌肉疼痛和疲劳"
       }
    }
 }

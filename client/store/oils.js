@@ -1,4 +1,5 @@
 import axios from 'axios'
+import Vue from 'vue'
 
 export const state = () => ({
 	oil: {},
@@ -6,14 +7,18 @@ export const state = () => ({
     properties: [],
     oilProperties: {},
     compatibility: {},
+    checkedOils: {},
+	checkedProperties: {},
 })
 
 export const getters = {
     oil: state => state.oil,
     oils: state => state.oils,
     properties: state => state.properties,
+    checkedOils: state => state.checkedOils,
     oilProperties: state => state.oilProperties,
     compatibility: state => state.compatibility,
+    checkedProperties: state => state.checkedProperties,
 }
 
 export const mutations = {
@@ -26,6 +31,18 @@ export const mutations = {
 
 	setOil (state, oil) {
 		state.oil = oil
+	},
+
+	toggleProperty (state, id) {
+        if (state.checkedProperties[id])
+          Vue.delete(state.checkedProperties, id)
+        else Vue.set(state.checkedProperties, id, true)
+	},
+
+	toggleOil (state, id) {
+        if (state.checkedOils[id])
+          Vue.delete(state.checkedOils, id)
+        else Vue.set(state.checkedOils, id, true)
 	},
 }
 
@@ -42,7 +59,7 @@ export const actions = {
 
 	async fetchOil ({ commit }, name) {
 	    try {
-			const { data } = await axios.get('oil/' + name)
+			const { data } = await axios.get('oils/' + name)
 			commit('setOil', data)
 	    } 
 	    catch (e) {

@@ -24,7 +24,7 @@
           {
             hid: 'description', 
             name: 'description', 
-            content: this.$t('handbook_description')
+            content: this.$t('handbook_description'),
           }
         ],
       }

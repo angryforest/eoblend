@@ -6,10 +6,10 @@
         <span class="oilButton" 
               v-for="property in properties" 
               :key="property.id"
-              :title="property.rus_description"
+              :title="property.data[locale].description"
               :class="{'active': checkedProperties[property.id]}"
               @click="toggleProperty(property.id)">
-            {{ locale === 'ru' ? property.rus_name : property.eng_name }}
+            {{ property.data[locale].name }}
           <sup class="propertySup" v-if="checkedProperties[property.id]">{{ property.id }}</sup>
         </span>
 
@@ -37,7 +37,7 @@
                     :key="oil.id"
                     :class="oilButtonClass(oil.id)"
                     @click="toggleOil(oil.id)">
-                  {{ oil.name[locale] }}
+                  {{ oil.data.name[locale] }}
                   <span class="property">{{ oilProps(oil.id).join(', ') }}</span>
               </span>
             </div>
@@ -55,9 +55,7 @@
   export default {
 
     data: () => ({
-      checkedOils: {},
       availableOils: {},
-      checkedProperties: {},
     }),
 
     computed: mapGetters({
@@ -67,12 +65,18 @@
       oilProperties: 'oils/oilProperties',
       compatibility: 'oils/compatibility',
       authenticated: 'auth/check',
+      checkedOils: 'oils/checkedOils',
+      checkedProperties: 'oils/checkedProperties',
     }),
 
     async fetch() {
       // Избегаем повторной загрузки данных
       if(!this.oils.length)
         await this.init()
+    },
+
+    mounted () {
+      this.tableCalc()
     },
 
     methods: {
@@ -95,28 +99,17 @@
           // Масло выбрано
           { 'active': this.checkedOils[id] }, 
           // Масло сочетается со всеми выбранными маслами
-          { 'available': Object.keys(this.checkedOils).length && Object.keys(this.checkedOils).length === this.availableOils[id] }
+          { 'available': Object.keys(this.checkedOils).length && Object.keys(this.checkedOils).length === this.availableOils[id] },
         ]
       },
 
       toggleProperty (id) {
-        if (this.checkedProperties[id])
-          this.$delete(this.checkedProperties, id)
-        else this.$set(this.checkedProperties, id, true)
+        this.$store.commit('oils/toggleProperty', id)
       },
 
       toggleOil (id) {
-        let change;
-
         // Определяем модификатор и меняем список выбранных масел
-        if (this.checkedOils[id]) {
-          change = -1
-          this.$delete(this.checkedOils, id)
-        }
-        else {
-          change = 1
-          this.$set(this.checkedOils, id, true)
-        }
+        let change = this.checkedOils[id] ? -1 : 1;
 
         // Проходим только по комплиментарным маслам модифицируя счётчик
         this.compatibility[id].forEach(oil => {
@@ -126,6 +119,29 @@
             else this.availableOils[oil] += change
           }
         });
+
+        // Провоцирует перерисовку шаблона
+        this.$store.commit('oils/toggleOil', id)
+      },
+
+      // Проход по всем выбраным маслам и рассчёт для отображения при возврате с другой страницы
+      tableCalc () {
+        let checked = Object.entries(this.checkedOils);
+
+        if(checked.length) {
+          for (const [id, value] of checked) {
+            this.compatibility[id].forEach(oil => {
+              if (id != oil) {
+                if (!this.availableOils[oil]) 
+                  this.availableOils[oil] = 1
+                else this.availableOils[oil]++
+              }
+            });
+          }
+
+          // Провоцирует перерисовку шаблона
+          this.$set(this.availableOils, this.availableOils)
+        }
       },
     },
   }
