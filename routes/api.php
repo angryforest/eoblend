@@ -36,7 +36,5 @@ Route::group(['middleware' => 'guest:api'], function () {
     Route::get('oauth/{driver}/callback', [OAuthController::class, 'handleCallback'])->name('oauth.callback');
 
     Route::get('oils', [GuestController::class, 'getJsonOils']);
+    Route::get('oils/{name}', [GuestController::class, 'getJsonOil']);   
 });
-
-
-    Route::get('oil/{name}', [GuestController::class, 'getJsonOil']);   

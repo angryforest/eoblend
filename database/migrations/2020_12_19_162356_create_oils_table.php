@@ -21,7 +21,7 @@ class CreateOilsTable extends Migration
             $table->softDeletes();
 
             $table->float('volatility');
-            $table->string('url', 128)->nullable();
+            $table->string('name', 128);
             $table->string('cover', 128)->nullable();
         });
     }

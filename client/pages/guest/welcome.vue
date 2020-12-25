@@ -3,7 +3,9 @@
 
     <div class="row mbot3">
       <div class="col-md-12">
-        <h1>{{ $t('calculator_tagline') }}</h1>
+        <h1>
+          {{ $t('calculator_tagline') }}
+        </h1>
       </div>
     </div>
 
@@ -46,7 +48,7 @@
           {
             hid: 'description', 
             name: 'description', 
-            content: this.$t('calculator_description')
+            content: this.$t('calculator_description'),
           }
         ],
       }

@@ -128,14 +128,14 @@
          "de":"Insektizid",
          "fr":"Insecticide",
          "es":"Insecticida",
-         "zh":"Contra insectos"
+         "zh":"杀虫剂"
       },
       "description":{
          "ru":"Против насекомых",
          "en":"Against insects",
          "de":"Gegen Insekten",
          "fr":"Contre les insectes",
-         "es":"杀虫剂",
+         "es":"Contra insectos",
          "zh":"对抗昆虫"
       }
    },

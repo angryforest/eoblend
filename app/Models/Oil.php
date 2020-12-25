@@ -19,9 +19,8 @@ class Oil extends BaseModel
     ];
 
     protected $fillable = [
-        'url',
+        'name',
         'volatility',
-        'cover',
     ];
 
     protected $hidden = [
@@ -29,4 +28,20 @@ class Oil extends BaseModel
         'updated_at',
         'deleted_at',
     ];
+
+    public static function getMapById() {
+        $query = Oil::all();
+        $map = [];
+        foreach ($query as $item)
+            $map[$item->id] = $item;
+        return $map;
+    }
+
+    public static function getMapByName() {
+        $query = Oil::all();
+        $map = [];
+        foreach ($query as $item)
+            $map[$item->name] = $item;
+        return $map;
+    }
 }

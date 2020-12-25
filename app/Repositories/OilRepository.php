@@ -6,38 +6,40 @@ use App\Models\Oil;
 use App\Models\Property;
 use App\Models\OilProperty;
 use App\Models\Compatibility;
-use App\Models\Specification;
+use App\Models\OilData;
+use App\Models\PropertyData;
 
 use App\Repositories\Interfaces\OilRepositoryInterface;
 
 class OilRepository implements OilRepositoryInterface 
 {
+    // TODO Прописать связи таблиц в моделях
     // TODO Оптимизировать через кэш
     public function oilList(): object 
     {
-        $specification = Specification::select(['oil_id', 'name', 'language'])->get();
-        $specificationByOilId = [];
-        foreach ($specification as $spec)
-            $specificationByOilId[$spec->oil_id][$spec->language] = $spec->name;
+        $oilData = OilData::select(['oil_id', 'name', 'language'])->get();
+        $oilDataByOilId = [];
+        foreach ($oilData as $data)
+            $oilDataByOilId[$data->oil_id][$data->language] = $data->name;
 
         $oils = Oil::all();
         foreach ($oils as $index => $oil)
-            $oils[$index]->name = $specificationByOilId[$oil->id];
+            $oils[$index]->data = ['name' => $oilDataByOilId[$oil->id]];
 
         return $oils;
     }
 
-    // TODO передовать и выводить список комплиментарных масел 
+    // TODO передавать и выводить список комплиментарных масел 
     public function getOilData($name): object 
     {
-        $oil = Oil::where(['url' => $name])->first();
+        $oil = Oil::where(['name' => $name])->first();
 
-        $specification = Specification::where(['oil_id' => $oil->id])->get();
-        $specificationByLang = [];
-        foreach ($specification as $spec)
-            $specificationByLang[$spec->language] = $spec;
+        $oilData = OilData::where(['oil_id' => $oil->id])->get();
+        $oilDataByLang = [];
+        foreach ($oilData as $data)
+            $oilDataByLang[$data->language] = $data;
 
-        $oil->specification = $specificationByLang;
+        $oil->data = $oilDataByLang;
 
         return $oil;
     }
@@ -54,9 +56,19 @@ class OilRepository implements OilRepositoryInterface
         return $map;
     }
 
+    // TODO Прописать связи таблиц в моделях
     public function propertyList(): object 
     {
-        return Property::all();
+        $propertyData = PropertyData::all();
+        $propertyDataByPropertyId = [];
+        foreach ($propertyData as $data)
+            $propertyDataByPropertyId[$data->property_id][$data->language] = $data;
+
+        $properties = Property::all();
+        foreach ($properties as $index => $property)
+            $properties[$index]->data = $propertyDataByPropertyId[$property->id];
+
+        return $properties;
     }
 
     public function oilPropertyMap(): array 

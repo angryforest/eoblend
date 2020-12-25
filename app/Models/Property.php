@@ -19,9 +19,7 @@ class Property extends BaseModel
     ];
 
     protected $fillable = [
-        'eng_name',
-        'rus_name',
-        'rus_description',
+        'name',
     ];
 
     protected $hidden = [
