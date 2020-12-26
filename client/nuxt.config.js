@@ -42,10 +42,6 @@ module.exports = {
         name: 'description', 
         content: '' 
       },
-      { 
-        name: 'Content-Security-Policy', 
-        content: "default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'" 
-      },
     ],
     link: [
       { 
