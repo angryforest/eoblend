@@ -6,6 +6,8 @@ export const state = () => ({
   locales: {
     'ru': 'Русский',
     'en': 'English',
+    'de': 'Deutsche',
+    'fr': 'Française',
     'es': 'Español',
     'zh': '中文',
   }
