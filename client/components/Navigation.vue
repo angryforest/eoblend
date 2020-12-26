@@ -59,7 +59,8 @@
             <li class="nav-item">
               <router-link :to="getPath('oils')" 
                            class="nav-link" 
-                           active-class="active">
+                           active-class="active"
+                           exact>
                 {{ $t('handbook') }}
               </router-link>
             </li>

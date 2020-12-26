@@ -79,6 +79,33 @@ input {
   }
 }
 
+@media only screen and (max-width: 899px) {
+  .long-lang {
+    display: none;
+  }
+  .short-lang {
+    display: initial;
+  }
+  .copyright-link {
+    text-align: center;
+    display: block;
+    width: 100%;
+  }
+  .footer .navbar {
+    justify-content: space-around !important;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .short-lang {
+    display: none;
+  }
+  .long-lang {
+    display: initial;
+  }
+}
+
+
 .portrait {
   @media screen and (orientation: landscape) {
     & {
@@ -244,10 +271,6 @@ body {
     border-radius: 3px;
   }
 
-  #catalog p:last-child {
-    margin-bottom: 0;
-  }
-
   #catalog .oil-description img {
     width: 100%;
   }
@@ -294,39 +317,6 @@ body {
     }
   }
 
-  .oilPreview {
-    a {
-      color: #484343;
-      font-size: 16px;
-      display: block;
-      transition: color 0.2s;
-      position: relative;
-      border-radius: 3px;
-      overflow: hidden;
-
-      .oil-title {
-        width: 100%;
-        padding: 10px 15px;
-        display: block;
-        background-color: #fff;
-      }
-
-      &:hover {
-        color: #000;
-        text-decoration: none;
-
-        img {
-          filter: grayscale(0);
-        }
-      }
-
-      img {
-        filter: grayscale(30%);
-        transition: filter 0.2s;
-      }
-    }
-  }
-
   .highVolatility {
     .volatilityTitle,
     .oilButton.active {
@@ -339,7 +329,7 @@ body {
       }
 
       &.available {
-        background-color: rgba(255, 147, 76, 0.6);
+        background-color: rgba(255, 147, 76, 0.3);
       }
     }
   }
@@ -356,7 +346,7 @@ body {
       }
 
       &.available {
-        background-color: rgba(48, 179, 255, 0.6);
+        background-color: rgba(48, 179, 255, 0.3);
       }
     }
   }
@@ -373,7 +363,7 @@ body {
       }
 
       &.available {
-        background-color: rgba(192, 97, 255, 0.6);
+        background-color: rgba(192, 97, 255, 0.3);
       }
     }
   }
@@ -385,7 +375,7 @@ body {
   .oilButton {
     margin: 2px;
     padding: 6px 12px 10px 12px;
-    color: #6d6d6d;
+    color: rgba(0, 0, 0, 0.6);
     display: inline-block;
     vertical-align: bottom;
     cursor: pointer;
@@ -394,16 +384,45 @@ body {
     text-align: center;
     background-color: rgba(0,0,0,0.05);
 
-    .propertySup {
-      &::before {
-        opacity: 0.5;
-        content: '(';
+    .typeIcon {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin: 0 2px;
+      display: inline-block;
+
+      &.floral {
+        background-color: #ff8433;
       }
 
-      &::after {
-        opacity: 0.5;
-        content: ')';
+      &.exotic {
+        background-color: #ff444d;
       }
+
+      &.resin {
+        background-color: #c540ff;
+      }
+
+      &.spices {
+        background-color: #3a53ff;
+      }
+
+      &.trees {
+        background-color: #31bfff;
+      }
+
+      &.herbs {
+        background-color: #9bd24e;
+      }
+
+      &.citrus {
+        background-color: #ffe71d;
+      }
+    }
+
+    &.typeButton {
+      background-color: transparent;
+      cursor: initial;
     }
 
     .property {
@@ -411,26 +430,6 @@ body {
       font-size: 10px;
       line-height: 2px;
       height: 0;
-
-      &::before {
-        opacity: 0.5;
-        content: '(';
-      }
-
-      &::after {
-        opacity: 0.5;
-        content: ')';
-      }
-
-      &:empty {
-        &::before {
-          content: '';
-        }
-
-        &::after {
-          content: '';
-        }
-      }
 
       span:last-child {
         display: none;
@@ -444,8 +443,7 @@ body {
     }
 
     &.available {
-      color: #fff;
-      text-shadow: 1px 1px rgba(0, 0, 0, 0.2);
+      color: rgba(0, 0, 0, 0.7);
     }
 
     &.disabled {

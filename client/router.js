@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import { loadMessages } from '~/plugins/i18n'
 import { scrollBehavior, getLocalizationPrefix as prefix } from '~/utils'
 
 Vue.use(Router)
@@ -96,6 +95,6 @@ export function createRouter () {
   return new Router({
     routes,
     scrollBehavior,
-    mode: 'history'
+    mode: 'history',
   })
 }

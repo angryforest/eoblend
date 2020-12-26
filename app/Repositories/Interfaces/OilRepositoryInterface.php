@@ -9,9 +9,9 @@ namespace App\Repositories\Interfaces;
  */
 interface OilRepositoryInterface 
 {
-    public function oilList(): object;
-    public function propertyList(): object;
-    public function oilPropertyMap(): array;
-    public function getOilData($name): object;
-    public function oilCompatibilityMap(): array;
+    public function oilList();
+    public function propertyList();
+    public function oilPropertyMap();
+    public function getOilData($name);
+    public function oilCompatibilityMap();
 }

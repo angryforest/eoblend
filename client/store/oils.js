@@ -4,16 +4,20 @@ import Vue from 'vue'
 export const state = () => ({
 	oil: {},
     oils: [],
-    properties: [],
+    types: {},
+    oilTypes: {},
+    properties: {},
+    checkedOils: {},
     oilProperties: {},
     compatibility: {},
-    checkedOils: {},
 	checkedProperties: {},
 })
 
 export const getters = {
     oil: state => state.oil,
     oils: state => state.oils,
+    types: state => state.types,
+    oilTypes: state => state.oilTypes,
     properties: state => state.properties,
     checkedOils: state => state.checkedOils,
     oilProperties: state => state.oilProperties,
@@ -22,8 +26,10 @@ export const getters = {
 }
 
 export const mutations = {
-	setOils (state, { oils, properties, oilProperties, compatibility }) {
+	setOils (state, { oils, types, properties, oilTypes, oilProperties, compatibility }) {
 		state.oils = oils
+		state.types = types
+		state.oilTypes = oilTypes
 		state.properties = properties
 		state.oilProperties = oilProperties
 		state.compatibility = compatibility

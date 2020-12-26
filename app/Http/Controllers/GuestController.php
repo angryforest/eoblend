@@ -25,6 +25,8 @@ class GuestController extends Controller
     {
         return response()->json([
             'oils' => $this->oilRepository->oilList(),
+            'types' => $this->oilRepository->typeList(),
+            'oilTypes' => $this->oilRepository->oilTypeMap(),
             'properties' => $this->oilRepository->propertyList(),
             'oilProperties' => $this->oilRepository->oilPropertyMap(),
             'compatibility' => $this->oilRepository->oilCompatibilityMap()

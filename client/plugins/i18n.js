@@ -17,6 +17,7 @@ export default async ({ app, store }) => {
   app.i18n = i18n
 }
 
+
 /**
  * @param {String} locale
  */

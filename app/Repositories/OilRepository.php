@@ -3,11 +3,14 @@
 namespace App\Repositories;
 
 use App\Models\Oil;
+use App\Models\Type;
+use App\Models\OilData;
+use App\Models\OilType;
 use App\Models\Property;
+use App\Models\TypeData;
+use App\Models\PropertyData;
 use App\Models\OilProperty;
 use App\Models\Compatibility;
-use App\Models\OilData;
-use App\Models\PropertyData;
 
 use App\Repositories\Interfaces\OilRepositoryInterface;
 
@@ -15,7 +18,7 @@ class OilRepository implements OilRepositoryInterface
 {
     // TODO Прописать связи таблиц в моделях
     // TODO Оптимизировать через кэш
-    public function oilList(): object 
+    public function oilList() 
     {
         $oilData = OilData::select(['oil_id', 'name', 'language'])->get();
         $oilDataByOilId = [];
@@ -30,7 +33,7 @@ class OilRepository implements OilRepositoryInterface
     }
 
     // TODO передавать и выводить список комплиментарных масел 
-    public function getOilData($name): object 
+    public function getOilData($name) 
     {
         $oil = Oil::where(['name' => $name])->first();
 
@@ -44,7 +47,7 @@ class OilRepository implements OilRepositoryInterface
         return $oil;
     }
 
-    public function oilCompatibilityMap(): array 
+    public function oilCompatibilityMap() 
     {
         $map = [];
         foreach (Compatibility::all() as $item) 
@@ -57,7 +60,7 @@ class OilRepository implements OilRepositoryInterface
     }
 
     // TODO Прописать связи таблиц в моделях
-    public function propertyList(): object 
+    public function propertyList() 
     {
         $propertyData = PropertyData::all();
         $propertyDataByPropertyId = [];
@@ -65,13 +68,33 @@ class OilRepository implements OilRepositoryInterface
             $propertyDataByPropertyId[$data->property_id][$data->language] = $data;
 
         $properties = Property::all();
-        foreach ($properties as $index => $property)
-            $properties[$index]->data = $propertyDataByPropertyId[$property->id];
+        $res = [];
+        foreach ($properties as $index => $property) {
+            $res[$property->id] = $property;
+            $res[$property->id]->data = $propertyDataByPropertyId[$property->id];
+        }
 
         return $properties;
     }
 
-    public function oilPropertyMap(): array 
+    public function typeList() 
+    {
+        $typeData = TypeData::all();
+        $typeDataByTypeId = [];
+        foreach ($typeData as $data)
+            $typeDataByTypeId[$data->type_id][$data->language] = $data;
+
+        $types = Type::all();
+        $res = [];
+        foreach ($types as $index => $type) {
+            $res[$type->id] = $type;
+            $res[$type->id]->data = $typeDataByTypeId[$type->id];
+        }
+
+        return $types;
+    }
+
+    public function oilPropertyMap() 
     {
         $map = [];
         foreach (OilProperty::all() as $item) 
@@ -79,6 +102,18 @@ class OilRepository implements OilRepositoryInterface
             if(!@$map[$item->oil_id])
                 $map[$item->oil_id] = [];
             $map[$item->oil_id][$item->property_id] = true;
+        }
+        return $map;
+    }
+
+    public function oilTypeMap() 
+    {
+        $map = [];
+        foreach (OilType::all() as $item) 
+        {
+            if(!@$map[$item->oil_id])
+                $map[$item->oil_id] = [];
+            $map[$item->oil_id][$item->type_id] = true;
         }
         return $map;
     }
