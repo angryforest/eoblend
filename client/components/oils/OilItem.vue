@@ -4,21 +4,52 @@
       <div class="col-md-12">
         <div v-if="oil.data" class="panel panel-default">
           <div class="panel-heading mbot3">
+
             <h1>
               {{ oil.data[locale].title }}
             </h1>
+            
           </div>
           <div class="panel-body oil-description">
-            <p>
-              <img :src="'/img/oils/' + oil.name + '.jpg'"
-                   :alt="oil.data[locale].name"
-                   class="img-rounded">
-            </p>
-            <p>{{ oil.data[locale].plant }}</p>
-            <p>{{ oil.data[locale].aroma }}</p>
-            <p>{{ oil.data[locale].properties }}</p>
-            <p>{{ oil.data[locale].methods }}</p>
-            <p>{{ oil.data[locale].contraindications }}</p>
+
+            <section>
+              <p>
+                <img :src="'/img/oils/' + oil.name + '.jpg'"
+                     :alt="oil.data[locale].name"
+                     class="img-rounded">
+              </p>
+            </section>
+
+            <section>
+              <p>
+                {{ oil.data[locale].plant }}
+              </p>
+            </section>
+
+            <section>
+              <p>
+                {{ oil.data[locale].aroma }}
+              </p>
+            </section>
+
+            <section>
+              <p>
+                {{ oil.data[locale].properties }}
+              </p>
+            </section>
+
+            <section>
+              <p>
+                {{ oil.data[locale].methods }}
+              </p>
+            </section>
+
+            <section>
+              <p>
+                {{ oil.data[locale].contraindications }}
+              </p>
+            </section>
+
           </div>
         </div>
       </div>

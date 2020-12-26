@@ -5,10 +5,13 @@
        v-for="(value, key) in locales" 
        :class="{'active': locale === key}"
        :key="key"
-       :hreflang="key"
-       @click.native="setLocale(key)">
-      {{ value }}
+       :hreflang="key">
+      <span class="short-lang">{{ value.substring(0, 2) }}</span>
+      <span class="long-lang">{{ value }}</span>
     </router-link>
+    <a href="#" class="nav-link copyright-link ml-auto">
+      © 2016-{{ year }} {{ $t('author') }}
+    </a>
   </nav>
 </template>
 
@@ -19,7 +22,8 @@
   export default {
     data: () => {
       return {
-        path: ''
+        path: '',
+        year: process.env.year,
       }
     },
 
@@ -41,13 +45,6 @@
     },
 
     methods: {
-      setLocale (locale) {
-        if (this.$i18n.locale !== locale) {
-          loadMessages(locale)
-          this.$store.dispatch('lang/setLocale', { locale })
-        }
-      },
-
       // Получаем текущий путь без языкового префикса
       preparePath (router) {
         let path = router.path

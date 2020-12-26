@@ -14,7 +14,7 @@ class Controller extends BaseController
     public function __construct() 
     {
         $this->data = [
-            'version' => '0.2'
+            'version' => '0.25'
         ];
     }
 }

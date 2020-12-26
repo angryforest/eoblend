@@ -10,9 +10,13 @@ module.exports = {
   srcDir: __dirname,
 
   env: {
+    ga: process.env.GA_ID,
+    ym: process.env.YM_ID,
+    year: new Date().getFullYear(),
     apiUrl: process.env.API_URL,
     appUrl: process.env.APP_URL,
     appName: process.env.APP_NAME,
+    nodeEnv: process.env.NODE_ENV,
     appLocale: process.env.APP_LOCALE,
     githubAuth: !!process.env.GITHUB_CLIENT_ID,
     fallbackLocale: process.env.APP_FALLBACK_LOCALE,
@@ -72,10 +76,10 @@ module.exports = {
     '~plugins/axios',
     '~plugins/fontawesome',
     '~plugins/nuxt-client-init',
-    { 
-      src: '~plugins/bootstrap', 
-      mode: 'client',
-    },
+    '~plugins/router-locale-sync',
+    { src: '~plugins/bootstrap', mode: 'client' },
+    { src: '~plugins/yandex-metrika.js', mode: 'client' },
+    { src: '~plugins/google-analytics.js', mode: 'client' },
   ],
 
   modules: [
