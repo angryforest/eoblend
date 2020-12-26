@@ -41,6 +41,10 @@ module.exports = {
         name: 'description', 
         content: '' 
       },
+      { 
+        name: 'Content-Security-Policy', 
+        content: "default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'" 
+      },
     ],
     link: [
       { 
@@ -78,8 +82,6 @@ module.exports = {
     '~plugins/nuxt-client-init',
     '~plugins/router-locale-sync',
     { src: '~plugins/bootstrap', mode: 'client' },
-    { src: '~plugins/yandex-metrika.js', mode: 'client' },
-    { src: '~plugins/google-analytics.js', mode: 'client' },
   ],
 
   modules: [
