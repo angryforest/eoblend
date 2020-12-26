@@ -12,6 +12,7 @@ module.exports = {
   env: {
     ga: process.env.GA_ID,
     ym: process.env.YM_ID,
+    nodeEnv: process.env.NODE_ENV,
     year: new Date().getFullYear(),
     apiUrl: process.env.API_URL,
     appUrl: process.env.APP_URL,
