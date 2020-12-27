@@ -33,7 +33,7 @@ class OilRepository implements OilRepositoryInterface
     }
 
     // TODO передавать и выводить список комплиментарных масел 
-    public function getOilData($name) 
+    public function oilData($name) 
     {
         $oil = Oil::where(['name' => $name])->first();
 

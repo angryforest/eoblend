@@ -12,6 +12,6 @@ interface OilRepositoryInterface
     public function oilList();
     public function propertyList();
     public function oilPropertyMap();
-    public function getOilData($name);
+    public function oilData($name);
     public function oilCompatibilityMap();
 }

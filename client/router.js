@@ -1,6 +1,7 @@
 import Vue from 'vue'
+import axios from 'axios'
 import Router from 'vue-router'
-import { scrollBehavior, getLocalizationPrefix as prefix } from '~/utils'
+import { scrollBehavior } from '~/utils'
 
 Vue.use(Router)
 
@@ -87,14 +88,26 @@ const routes = [
           },
         ],
       },
+      { 
+        path: 'views',
+        name: 'views', 
+        component: page('guest/views.vue'),
+      },
     ]
   }
 ]
 
 export function createRouter () {
-  return new Router({
+  const router = new Router({
     routes,
     scrollBehavior,
     mode: 'history',
   })
+
+  router.afterEach((to, next) => {
+    if (process.client)
+      axios.post('page-view', { url: to.fullPath, lang: to.params.lang })
+  })
+
+  return router
 }
