@@ -39,7 +39,7 @@
     },
 
     components: {
-      OilList
+      OilList,
     },
 
   }

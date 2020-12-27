@@ -18,7 +18,7 @@ class GuestController extends Controller
 
 	public function getJsonOil($name) 
 	{
-        return response()->json($this->oilRepository->getOilData($name));
+        return response()->json($this->oilRepository->oilData($name));
     }
 
     public function getJsonOils() 
@@ -29,7 +29,7 @@ class GuestController extends Controller
             'oilTypes' => $this->oilRepository->oilTypeMap(),
             'properties' => $this->oilRepository->propertyList(),
             'oilProperties' => $this->oilRepository->oilPropertyMap(),
-            'compatibility' => $this->oilRepository->oilCompatibilityMap()
+            'compatibility' => $this->oilRepository->oilCompatibilityMap(),
         ]);
     }
 }

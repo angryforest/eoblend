@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\GuestController;
+use App\Http\Controllers\PageViewController;
 use App\Http\Controllers\Auth\UserController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\OAuthController;
@@ -37,4 +38,7 @@ Route::group(['middleware' => 'guest:api'], function () {
 
     Route::get('oils', [GuestController::class, 'getJsonOils']);
     Route::get('oils/{name}', [GuestController::class, 'getJsonOil']);   
+
+    Route::get('page-views', [PageViewController::class, 'getPageViews']); 
+    Route::post('page-view', [PageViewController::class, 'postPageView']); 
 });

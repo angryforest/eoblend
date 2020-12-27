@@ -4,6 +4,10 @@ namespace App\Providers;
 
 use App\Repositories\OilRepository;
 use App\Repositories\Interfaces\OilRepositoryInterface;
+
+use App\Repositories\PageViewRepository;
+use App\Repositories\Interfaces\PageViewRepositoryInterface;
+
 use Illuminate\Support\ServiceProvider;
 
 class RepositoryServiceProvider extends ServiceProvider 
@@ -18,6 +22,11 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(
             OilRepositoryInterface::class, 
             OilRepository::class
+        );
+
+        $this->app->bind(
+            PageViewRepositoryInterface::class, 
+            PageViewRepository::class
         );
     }
 

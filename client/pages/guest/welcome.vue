@@ -55,7 +55,7 @@
     },
 
     components: {
-      CompatibilityTable
+      CompatibilityTable,
     },
 
   }
