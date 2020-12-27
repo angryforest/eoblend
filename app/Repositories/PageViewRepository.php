@@ -19,14 +19,14 @@ class PageViewRepository implements PageViewRepositoryInterface
     {
     	// Кэшируем запрос. Кэш сбрасывается при обновлении базы
     	$viewsStats = Cache::remember('views_stats', 1800, function() {
-	        return DB::table('page_views as t1')
+	        return DB::table('page_views')
 				->select(
 					'url', 
 					'language', 
 					DB::raw('count(*) as total'), 
 					DB::raw('count(DISTINCT ip) as visits')
 				)
-				->groupBy('url', 'language', 'ip')
+				->groupBy('url', 'language')
 				->orderBy('url', 'ASC')
 				->orderBy('visits', 'DESC')
 				->orderBy('total', 'DESC')
