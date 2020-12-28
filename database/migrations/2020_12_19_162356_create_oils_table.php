@@ -22,7 +22,6 @@ class CreateOilsTable extends Migration
 
             $table->float('volatility');
             $table->string('name', 128);
-            $table->string('cover', 128)->nullable();
         });
     }
 

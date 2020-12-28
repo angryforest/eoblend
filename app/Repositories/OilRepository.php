@@ -4,12 +4,7 @@ namespace App\Repositories;
 
 use App\Models\Oil;
 use App\Models\Type;
-use App\Models\OilData;
-use App\Models\OilType;
 use App\Models\Property;
-use App\Models\TypeData;
-use App\Models\OilProperty;
-use App\Models\Compatibility;
 
 use Illuminate\Support\Facades\Cache;
 use App\Repositories\Interfaces\OilRepositoryInterface;

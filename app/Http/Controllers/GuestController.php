@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Repositories\Interfaces\OilRepositoryInterface;
-use App\Models\Property;
-use App\Models\PropertyData;
+use App\Models\Oil;
 
 use Illuminate\Http\Request;
 
@@ -36,7 +35,13 @@ class GuestController extends Controller
     public function test() 
     {
         var_dump('<pre>');
-        var_dump(json_decode(json_encode(Property::getMapWithDataByLang())));
+        var_dump(json_decode(json_encode(
+
+        Oil::all()->flatMap(function($item) { 
+            return [$item->name => $item];
+        })
+
+        )));
         var_dump('</pre>');
 
     }
