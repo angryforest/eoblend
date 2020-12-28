@@ -19,12 +19,12 @@ class TypeData extends BaseModel
     ];
 
     protected $fillable = [
-        'type_id',
         'name',
         'language',
     ];
 
     protected $hidden = [
+        'type_id',
         'created_at',
         'updated_at',
         'deleted_at',

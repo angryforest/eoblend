@@ -12,6 +12,12 @@ use Illuminate\Support\ServiceProvider;
 
 class RepositoryServiceProvider extends ServiceProvider 
 {
+    // Массовый bind
+    public $bindings = [
+        OilRepositoryInterface::class => OilRepository::class,
+        PageViewRepositoryInterface::class => PageViewRepository::class,
+    ];
+
     /**
      * Связывание сервис-контейнеров
      *
@@ -19,15 +25,7 @@ class RepositoryServiceProvider extends ServiceProvider
      */
     public function register() 
     {
-        $this->app->bind(
-            OilRepositoryInterface::class, 
-            OilRepository::class
-        );
-
-        $this->app->bind(
-            PageViewRepositoryInterface::class, 
-            PageViewRepository::class
-        );
+        
     }
 
     /**
@@ -37,6 +35,6 @@ class RepositoryServiceProvider extends ServiceProvider
      */
     public function boot() 
     {
-        //
+
     }
 }

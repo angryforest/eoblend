@@ -21,14 +21,14 @@
         <router-link v-for="oil in oils" 
                      :key="oil.id"
                      :to="'oils/' + oil.name"
-                     :title="oil.data.name[locale]"
+                     :title="oil.data[locale].name"
                      class="oilButton"
-                     :class="{ 'active': checkedOils[oil.id] }">
-          {{ oil.data.name[locale] }}
-          <span v-for="val, type, index in oilTypes[oil.id]"
+                     :class="{ 'active': checkedOils.includes(oil.id) }">
+          {{ oil.data[locale].name }}
+          <span v-for="type in oil.types"
                   :key="type"
                   class="typeIcon" 
-                  :class="types[type-1].name">
+                  :class="type">
           </span>
         </router-link>
 
@@ -50,7 +50,6 @@
       oils: 'oils/oils',
       types: 'oils/types',
       locale: 'lang/locale',
-      oilTypes: 'oils/oilTypes',
       checkedOils: 'oils/checkedOils',
     }),
 

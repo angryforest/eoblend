@@ -24,6 +24,7 @@ class OilProperty extends BaseModel
     ];
 
     protected $hidden = [
+        'id',
         'created_at',
         'updated_at',
         'deleted_at',

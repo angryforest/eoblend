@@ -18,7 +18,7 @@ class PageViewRepository implements PageViewRepositoryInterface
     public function pageViewStat() 
     {
     	// Кэшируем запрос. Кэш сбрасывается при обновлении базы
-    	$viewsStats = Cache::remember('views_stats', 1800, function() {
+    	return Cache::remember('views_stats', 1800, function() {
 	        return DB::table('page_views')
 				->select(
 					'url', 
@@ -33,7 +33,5 @@ class PageViewRepository implements PageViewRepositoryInterface
 				->orderBy('language', 'ASC')
 				->get();
 		});
-
-		return $viewsStats;
     }
 }

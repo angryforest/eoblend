@@ -9,6 +9,11 @@ use Illuminate\Support\ServiceProvider;
 
 class LogicServiceProvider extends ServiceProvider 
 {
+    // Массовый bind
+    public $bindings = [
+        PageViewLogicInterface::class => PageViewLogic::class,
+    ];
+
     /**
      * Связывание сервис-контейнеров
      *
@@ -16,10 +21,7 @@ class LogicServiceProvider extends ServiceProvider
      */
     public function register() 
     {
-        $this->app->bind(
-            PageViewLogicInterface::class, 
-            PageViewLogic::class
-        );
+
     }
 
     /**
@@ -29,6 +31,6 @@ class LogicServiceProvider extends ServiceProvider
      */
     public function boot() 
     {
-        //
+
     }
 }

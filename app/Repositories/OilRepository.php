@@ -8,113 +8,111 @@ use App\Models\OilData;
 use App\Models\OilType;
 use App\Models\Property;
 use App\Models\TypeData;
-use App\Models\PropertyData;
 use App\Models\OilProperty;
 use App\Models\Compatibility;
 
+use Illuminate\Support\Facades\Cache;
 use App\Repositories\Interfaces\OilRepositoryInterface;
 
 class OilRepository implements OilRepositoryInterface 
 {
-    // TODO Прописать связи таблиц в моделях
-    // TODO Оптимизировать через кэш
     public function oilList() 
     {
-        $oilData = OilData::select(['oil_id', 'name', 'language'])->get();
-        $oilDataByOilId = [];
-        foreach ($oilData as $data)
-            $oilDataByOilId[$data->oil_id][$data->language] = $data->name;
+        return Cache::rememberForever('oils', function() { 
+            return Oil::with([
+                'data:oil_id,name,language', 
+                'types.type', 'properties', 
+                'compatibility'
+            ])->get()->map(function($item) { 
 
-        $oils = Oil::all();
-        foreach ($oils as $index => $oil)
-            $oils[$index]->data = ['name' => $oilDataByOilId[$oil->id]];
+                // Передаём минимум данных с сервера
+                $data = $item->data->flatMap(function($lang) { 
+                    $locale = $lang->language;
+                    unset($lang->language);
+                    return [$locale => $lang]; 
+                });
 
-        return $oils;
+                // TODO Переписать на стрелочные функции после установки нового PHP
+                $types = $item->types->map(function($type) { return $type->type->name; });
+                $properties = $item->properties->map(function($prop) { return $prop->property_id; });
+                $compatibility = $item->compatibility->map(function($prop) { return $prop->pair_oil_id; });
+
+                // PHP...
+                unset(
+                    $item->data, 
+                    $item->types, 
+                    $item->properties, 
+                    $item->compatibility
+                );
+
+                $item->data = $data;
+                $item->types = $types;
+                $item->properties = $properties;
+                $item->compatibility = $compatibility;
+                
+                return $item;
+            });
+        });
     }
 
-    // TODO передавать и выводить список комплиментарных масел 
+    // TODO выводить ещё типы, свойства, список комплиментарных масел 
     public function oilData($name) 
     {
-        $oil = Oil::where(['name' => $name])->first();
+        return Cache::remember('oil_'.$name, 60, function() use($name) { 
 
-        $oilData = OilData::where(['oil_id' => $oil->id])->get();
-        $oilDataByLang = [];
-        foreach ($oilData as $data)
-            $oilDataByLang[$data->language] = $data;
+            $item = Oil::with(['data'])
+                    ->where(['name' => $name])
+                    ->first();
 
-        $oil->data = $oilDataByLang;
+            $data = $item->data->flatMap(function($lang) { 
+                $locale = $lang->language;
+                unset($lang->language);
+                return [$locale => $lang]; 
+            });
 
-        return $oil;
+            unset($item->data);
+            $item->data = $data;
+                
+            return $item;
+
+        });
     }
 
-    public function oilCompatibilityMap() 
-    {
-        $map = [];
-        foreach (Compatibility::all() as $item) 
-        {
-            if(!@$map[$item->oil_id])
-                $map[$item->oil_id] = [];
-            $map[$item->oil_id][] = $item->pair_oil_id;
-        }
-        return $map;
-    }
-
-    // TODO Прописать связи таблиц в моделях
     public function propertyList() 
     {
-        $propertyData = PropertyData::all();
-        $propertyDataByPropertyId = [];
-        foreach ($propertyData as $data)
-            $propertyDataByPropertyId[$data->property_id][$data->language] = $data;
+        return Cache::rememberForever('properties', function() { 
+            return Property::with(['data'])->get()->map(function($item) { 
 
-        $properties = Property::all();
-        $res = [];
-        foreach ($properties as $index => $property) {
-            $res[$property->id] = $property;
-            $res[$property->id]->data = $propertyDataByPropertyId[$property->id];
-        }
+                $data = $item->data->flatMap(function($lang) { 
+                    $locale = $lang->language;
+                    unset($lang->language);
+                    return [$locale => $lang]; 
+                });
 
-        return $properties;
+                unset($item->data);
+                $item->data = $data;
+                
+                return $item;
+            });
+        });
     }
 
     public function typeList() 
     {
-        $typeData = TypeData::all();
-        $typeDataByTypeId = [];
-        foreach ($typeData as $data)
-            $typeDataByTypeId[$data->type_id][$data->language] = $data;
+        return Cache::rememberForever('types', function() { 
+            return Type::with(['data'])->get()->map(function($item) { 
 
-        $types = Type::all();
-        $res = [];
-        foreach ($types as $index => $type) {
-            $res[$type->id] = $type;
-            $res[$type->id]->data = $typeDataByTypeId[$type->id];
-        }
+                $data = $item->data->flatMap(function($lang) { 
+                    $locale = $lang->language;
+                    unset($lang->language);
+                    return [$locale => $lang]; 
+                });
 
-        return $types;
-    }
-
-    public function oilPropertyMap() 
-    {
-        $map = [];
-        foreach (OilProperty::all() as $item) 
-        {
-            if(!@$map[$item->oil_id])
-                $map[$item->oil_id] = [];
-            $map[$item->oil_id][$item->property_id] = true;
-        }
-        return $map;
-    }
-
-    public function oilTypeMap() 
-    {
-        $map = [];
-        foreach (OilType::all() as $item) 
-        {
-            if(!@$map[$item->oil_id])
-                $map[$item->oil_id] = [];
-            $map[$item->oil_id][$item->type_id] = true;
-        }
-        return $map;
+                unset($item->data);
+                $item->data = $data;
+                
+                return $item;
+            });
+        });
     }
 }

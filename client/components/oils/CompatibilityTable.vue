@@ -8,10 +8,10 @@
               v-for="property in properties" 
               :key="property.id"
               :title="property.data[locale].description"
-              :class="{'active': checkedProperties[property.id]}"
-              @click="toggleProperty(property.id)">
+              :class="{'active': checkedProperties.includes(property.id)}"
+              @click="toggleProperty(property)">
             {{ property.data[locale].name }}
-          <sup class="propertySup" v-if="checkedProperties[property.id]">{{ property.id }}</sup>
+          <sup class="propertySup" v-if="checkedProperties.includes(property.id)">{{ property.id }}</sup>
         </span>
 
       </div>
@@ -36,10 +36,10 @@
               <span class="oilButton" 
                     v-for="oil in oilsVolatility(index + 1)"
                     :key="oil.id"
-                    :class="oilButtonClass(oil.id)"
-                    @click="toggleOil(oil.id)">
-                  {{ oil.data.name[locale] }}
-                  <span class="property">{{ oilProps(oil.id).join(', ') }}</span>
+                    :class="oilButtonClass(oil)"
+                    @click="toggleOil(oil)">
+                  {{ oil.data[locale].name }}
+                  <span class="property">{{ oilProps(oil).join(', ') }}</span>
               </span>
             </div>
 
@@ -63,8 +63,6 @@
       locale: 'lang/locale',
       oils: 'oils/oils',
       properties: 'oils/properties',
-      oilProperties: 'oils/oilProperties',
-      compatibility: 'oils/compatibility',
       authenticated: 'auth/check',
       checkedOils: 'oils/checkedOils',
       checkedProperties: 'oils/checkedProperties',
@@ -86,8 +84,8 @@
         await this.$store.dispatch('oils/fetchOils')
       },
 
-      oilProps (oilId) {
-        return Object.keys(this.checkedProperties).filter(propId => this.oilProperties?.[oilId]?.[propId])
+      oilProps (oil) {
+        return this.checkedProperties.filter(id => oil.properties[id])
       },
 
       // Летучесть масел указана в числах с плавающей точкой (возможно будет использовано позже)
@@ -95,50 +93,44 @@
         return this.oils.filter(oil => oil.volatility > index-1 && oil.volatility <= index)
       },
 
-      oilButtonClass (id) {
+      oilButtonClass (oil) {
         return [
           // Масло выбрано
-          { 'active': this.checkedOils[id] }, 
+          { 'active': this.checkedOils.includes(oil.id) }, 
           // Масло сочетается со всеми выбранными маслами
-          { 'available': Object.keys(this.checkedOils).length && Object.keys(this.checkedOils).length === this.availableOils[id] },
+          { 'available': this.checkedOils.length && this.checkedOils.length === this.availableOils[oil.id] },
         ]
       },
 
-      toggleProperty (id) {
-        this.$store.commit('oils/toggleProperty', id)
+      toggleProperty (property) {
+        this.$store.commit('oils/toggleProperty', property.id)
       },
 
-      toggleOil (id) {
+      toggleOil (oil) {
         // Определяем модификатор и меняем список выбранных масел
-        let change = this.checkedOils[id] ? -1 : 1;
+        let change = this.checkedOils.includes(oil.id) ? -1 : 1
 
         // Проходим только по комплиментарным маслам модифицируя счётчик
-        this.compatibility[id].forEach(oil => {
-          if (id != oil) {
-            if (!this.availableOils[oil]) 
-              this.availableOils[oil] = change
-            else this.availableOils[oil] += change
-          }
-        });
+        oil.compatibility.filter(id => oil.id != id).forEach(id => {
+          if (!this.availableOils[id]) 
+            this.availableOils[id] = change
+          else this.availableOils[id] += change
+        })
 
         // Провоцирует перерисовку шаблона
-        this.$store.commit('oils/toggleOil', id)
+        this.$store.commit('oils/toggleOil', oil.id)
       },
 
       // Проход по всем выбраным маслам и рассчёт для отображения при возврате с другой страницы
       tableCalc () {
-        let checked = Object.entries(this.checkedOils);
-
-        if(checked.length) {
-          for (const [id, value] of checked) {
-            this.compatibility[id].forEach(oil => {
-              if (id != oil) {
-                if (!this.availableOils[oil]) 
-                  this.availableOils[oil] = 1
-                else this.availableOils[oil]++
-              }
-            });
-          }
+        if(this.checkedOils.length) {
+          this.oils.filter(oil => this.checkedOils.includes(oil.id)).forEach(oil => {
+            oil.compatibility.filter(id => oil.id != id).forEach(id => {
+              if (!this.availableOils[id]) 
+                this.availableOils[id] = 1
+              else this.availableOils[id]++
+            })
+          })
 
           // Провоцирует перерисовку шаблона
           this.$set(this.availableOils, this.availableOils)
