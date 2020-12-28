@@ -384,39 +384,43 @@ body {
     text-align: center;
     background-color: rgba(0,0,0,0.05);
 
+    .types {
+      display: block;
+      font-size: 15px;
+      line-height: 2px;
+      height: 0;
+    }
+
     .typeIcon {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
       margin: 0 2px;
       display: inline-block;
 
       &.floral {
-        background-color: #ff8433;
+        color: #ff8433;
       }
 
       &.exotic {
-        background-color: #ff444d;
+        color: #ff444d;
       }
 
       &.resin {
-        background-color: #c540ff;
+        color: #c540ff;
       }
 
       &.spices {
-        background-color: #3a53ff;
+        color: #3a53ff;
       }
 
       &.trees {
-        background-color: #31bfff;
+        color: #31bfff;
       }
 
       &.herbs {
-        background-color: #9bd24e;
+        color: #9bd24e;
       }
 
       &.citrus {
-        background-color: #ffe71d;
+        color: #ffe71d;
       }
     }
 

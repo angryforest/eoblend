@@ -13,7 +13,9 @@ class TypeTableSeeder extends Seeder
 {
     public function run()
     {
-    	$oilsMapByName = Oil::getMapByName();
+    	$oilsMapByName = Oil::all()->flatMap(function($item) { 
+            return [$item->name => $item];
+        });
 
         $types = json_decode(file_get_contents('json/types.json', true));
         foreach ($types as $name => $type) 

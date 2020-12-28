@@ -53,20 +53,4 @@ class Oil extends BaseModel
     {
         return $this->hasMany(Compatibility::class);
     }
-
-    public static function getMapById() {
-        $query = Oil::all();
-        $map = [];
-        foreach ($query as $item)
-            $map[$item->id] = $item;
-        return $map;
-    }
-
-    public static function getMapByName() {
-        $query = Oil::all();
-        $map = [];
-        foreach ($query as $item)
-            $map[$item->name] = $item;
-        return $map;
-    }
 }
