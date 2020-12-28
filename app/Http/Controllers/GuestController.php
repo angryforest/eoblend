@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Repositories\Interfaces\OilRepositoryInterface;
+use App\Models\Property;
+use App\Models\PropertyData;
 
 use Illuminate\Http\Request;
 
@@ -26,10 +28,16 @@ class GuestController extends Controller
         return response()->json([
             'oils' => $this->oilRepository->oilList(),
             'types' => $this->oilRepository->typeList(),
-            'oilTypes' => $this->oilRepository->oilTypeMap(),
             'properties' => $this->oilRepository->propertyList(),
-            'oilProperties' => $this->oilRepository->oilPropertyMap(),
-            'compatibility' => $this->oilRepository->oilCompatibilityMap(),
         ]);
+    }
+
+
+    public function test() 
+    {
+        var_dump('<pre>');
+        var_dump(json_decode(json_encode(Property::getMapWithDataByLang())));
+        var_dump('</pre>');
+
     }
 }

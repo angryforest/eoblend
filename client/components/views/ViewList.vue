@@ -8,7 +8,7 @@
           <thead>
             <tr>
               <th scope="col">Адрес</th>
-              <th scope="col" class="text-center">Посещения</th>
+              <th scope="col" class="text-center">Посетители</th>
               <th scope="col" class="text-center">Просмотры</th>
               <th scope="col" class="text-right">Язык</th>
             </tr>

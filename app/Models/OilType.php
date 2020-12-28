@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use App\Models\BaseModel;
+use App\Models\Type;
+
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -24,8 +26,14 @@ class OilType extends BaseModel
     ];
 
     protected $hidden = [
+        'id',
         'created_at',
         'updated_at',
         'deleted_at',
     ];
+
+    public function type()
+    {
+        return $this->belongsTo(Type::class);
+    }
 }

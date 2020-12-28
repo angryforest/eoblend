@@ -19,7 +19,6 @@ class OilData extends BaseModel
     ];
 
     protected $fillable = [
-        'oil_id',
         'name',
         'language',
         'title',
@@ -32,6 +31,7 @@ class OilData extends BaseModel
     ];
 
     protected $hidden = [
+        'oil_id',
         'created_at',
         'updated_at',
         'deleted_at',

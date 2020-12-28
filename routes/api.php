@@ -41,4 +41,7 @@ Route::group(['middleware' => 'guest:api'], function () {
 
     Route::get('page-views', [PageViewController::class, 'getPageViews']); 
     Route::post('page-view', [PageViewController::class, 'postPageView']); 
+
+
+    Route::get('test', [GuestController::class, 'test']); 
 });
