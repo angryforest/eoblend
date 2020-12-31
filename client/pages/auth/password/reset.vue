@@ -47,37 +47,38 @@
 </template>
 
 <script>
-import Form from 'vform'
+  import Form from 'vform'
 
-export default {
-  middleware: 'guest',
+  export default {
+    middleware: 'guest',
 
-  data: () => ({
-    status: '',
-    form: new Form({
-      token: '',
-      email: '',
-      password: '',
-      password_confirmation: ''
-    })
-  }),
-
-  head () {
-    return { title: this.$t('reset_password') }
-  },
-
-  created () {
-    this.form.email = this.$route.query.email
-    this.form.token = this.$route.params.token
-  },
-
-  methods: {
-    reset () {
-      this.form.post('/password/reset').then(({ data }) => {
-        this.status = data.status
-        this.form.reset()
+    data: () => ({
+      status: '',
+      form: new Form({
+        token: '',
+        email: '',
+        password: '',
+        password_confirmation: '',
       })
-    }
+    }),
+
+    head () {
+      return { title: this.$t('reset_password') }
+    },
+
+    created () {
+      this.form.email = this.$route.query.email
+      this.form.token = this.$route.params.token
+    },
+
+    methods: {
+      reset () {
+        this.form.post('/password/reset').then(({ data }) => {
+          this.status = data.status
+          this.form.reset()
+        })
+      }
+    },
+    
   }
-}
 </script>

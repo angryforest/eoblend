@@ -10,24 +10,20 @@
     </div>
     
     <oil-list />
+    <hreflang />
   </article>
 </template>
 
 <script>
-  import hreflang from '~/mixins/hreflang'
+  import Hreflang from '~/components/global/Hreflang'
   import OilList from '~/components/oils/OilList'
 
   export default {
     layout: 'default',
-    
-    mixins: [
-      hreflang,
-    ],
 
     head () {
       return { 
         title: this.$t('handbook'),
-        link: this.getHreflangs(),
         meta: [ 
           {
             hid: 'description', 
@@ -40,6 +36,7 @@
 
     components: {
       OilList,
+      Hreflang,
     },
 
   }

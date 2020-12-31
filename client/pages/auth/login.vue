@@ -49,16 +49,15 @@
         </form>
       </card>
     </div>
+    <hreflang />
   </div>
 </template>
 
 <script>
-  import hreflang from '~/mixins/hreflang'
+  import Hreflang from '~/components/global/Hreflang'
   import Form from 'vform'
 
   export default {
-    mixins: [hreflang],
-
     middleware: 'guest',
 
     data: () => ({
@@ -72,7 +71,6 @@
     head () {
       return { 
         title: this.$t('login'),
-        link: this.getHreflangs(),
       }
     },
 
@@ -100,7 +98,12 @@
         // Redirect home.
         this.$router.push({ name: 'home' })
       }
-    }
+    },
+
+    components: {
+      Hreflang,
+    },
+
   }
 
 </script>

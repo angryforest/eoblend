@@ -9,25 +9,22 @@
       </div>
     </div>
     
-     <view-list />
+    <view-list />
+    <hreflang />
   </article>
 </template>
 
 <script>
-  // import hreflang from '~/mixins/hreflang'
+  import Hreflang from '~/components/global/Hreflang'
   import ViewList from '~/components/views/ViewList'
 
   export default {
     layout: 'default',
     
-    // mixins: [
-    //   hreflang,
-    // ],
 
     head () {
       return { 
         title: 'Счётчик просмотров',
-        // link: this.getHreflangs(),
         // meta: [ 
         //   {
         //     hid: 'description', 
@@ -39,7 +36,8 @@
     },
 
     components: {
-       ViewList,
+      ViewList,
+      Hreflang,
     },
 
   }
