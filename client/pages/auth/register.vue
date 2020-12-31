@@ -60,16 +60,15 @@
         </form>
       </card>
     </div>
+    <hreflang />
   </div>
 </template>
 
 <script>
-  import hreflang from '~/mixins/hreflang'
+  import Hreflang from '~/components/global/Hreflang'
   import Form from 'vform'
 
   export default {
-    mixins: [hreflang],
-
     middleware: 'guest',
 
     data: () => ({
@@ -77,15 +76,14 @@
         name: '',
         email: '',
         password: '',
-        password_confirmation: ''
+        password_confirmation: '',
       }),
-      mustVerifyEmail: false
+      mustVerifyEmail: false,
     }),
 
     head () {
       return { 
         title: this.$t('register'),
-        link: this.getHreflangs(),
       }
     },
 
@@ -118,6 +116,11 @@
           this.$router.push({ name: 'home' })
         }
       }
-    }
+    },
+
+    components: {
+      Hreflang,
+    },
+
   }
 </script>

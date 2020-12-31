@@ -26,24 +26,20 @@
     </div>
     
     <compatibility-table />
+    <hreflang />
   </article>
 </template>
 
 <script>
-  import hreflang from '~/mixins/hreflang'
+  import Hreflang from '~/components/global/Hreflang'
   import CompatibilityTable from '~/components/oils/CompatibilityTable'
 
   export default {
     layout: 'default',
 
-    mixins: [
-      hreflang,
-    ],
-
     head () {
       return { 
         title: this.$t('calculator'),
-        link: this.getHreflangs(),
         meta: [ 
           {
             hid: 'description', 
@@ -56,6 +52,7 @@
 
     components: {
       CompatibilityTable,
+      Hreflang,
     },
 
   }

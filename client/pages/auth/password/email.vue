@@ -29,27 +29,29 @@
 </template>
 
 <script>
-import Form from 'vform'
+  import Form from 'vform'
 
-export default {
-  data: () => ({
-    status: '',
-    form: new Form({
-      email: ''
-    })
-  }),
-
-  head () {
-    return { title: this.$t('reset_password') }
-  },
-
-  methods: {
-    send () {
-      this.form.post('/password/email').then(({ data }) => {
-        this.status = data.status
-        this.form.reset()
+  export default {
+    
+    data: () => ({
+      status: '',
+      form: new Form({
+        email: '',
       })
-    }
+    }),
+
+    head () {
+      return { title: this.$t('reset_password') }
+    },
+
+    methods: {
+      send () {
+        this.form.post('/password/email').then(({ data }) => {
+          this.status = data.status
+          this.form.reset()
+        })
+      }
+    },
+
   }
-}
 </script>
