@@ -1,5 +1,5 @@
 <template>
-  <div id="catalog">
+  <div v-if="!loading" id="catalog">
     <div class="row">
       <div class="col-md-12">
         <div v-if="oil.data" class="panel panel-default">
@@ -84,12 +84,11 @@
       }
     },
 
-    computed: {
-      ...mapGetters({
+    computed: mapGetters({
+        loading: 'loading',
         locale: 'lang/locale',
         oil: 'oils/oil',
-      }),
-    },
+    }),
 
     async fetch() {
       await this.init()

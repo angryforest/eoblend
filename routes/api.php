@@ -40,5 +40,7 @@ Route::group(['middleware' => 'guest:api'], function () {
     Route::get('oils/{name}', [GuestController::class, 'getJsonOil']);   
 
     Route::get('page-views', [PageViewController::class, 'getPageViews']); 
+    Route::get('page-views/url', [PageViewController::class, 'getPageViewsByUrl']); 
+
     Route::post('page-view', [PageViewController::class, 'postPageView']); 
 });

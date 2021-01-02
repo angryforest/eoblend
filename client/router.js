@@ -88,10 +88,16 @@ const routes = [
           },
         ],
       },
+
       { 
         path: 'views',
         name: 'views', 
-        component: page('guest/views.vue'),
+        component: page('guest/views/list.vue'),
+      },
+      { 
+        path: 'views/url',
+        name: 'views.url', 
+        component: page('guest/views/url.vue'),
       },
     ]
   }

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="!loading">
 
     <div class="row">
       <div class="col-md-3 mbot2">
@@ -61,6 +61,7 @@
     }),
 
     computed: mapGetters({
+      loading: 'loading',
       oils: 'oils/oils',
       types: 'oils/types',
       locale: 'lang/locale',

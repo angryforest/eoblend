@@ -10,34 +10,23 @@
     </div>
     
     <view-list />
-    <hreflang />
   </article>
 </template>
 
 <script>
-  import Hreflang from '~/components/global/Hreflang'
   import ViewList from '~/components/views/ViewList'
 
   export default {
     layout: 'default',
     
-
     head () {
       return { 
         title: 'Счётчик просмотров',
-        // meta: [ 
-        //   {
-        //     hid: 'description', 
-        //     name: 'description', 
-        //     content: this.$t('handbook_description'),
-        //   }
-        // ],
       }
     },
 
     components: {
       ViewList,
-      Hreflang,
     },
 
   }
