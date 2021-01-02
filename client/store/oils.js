@@ -47,6 +47,8 @@ export const mutations = {
 
 export const actions = {
 	async fetchOils ({ commit }) {
+      	commit('setLoading', true, { root: true })
+
 	    try {
 			const { data } = await axios.get('oils')
 			commit('setOils', data)
@@ -54,15 +56,23 @@ export const actions = {
 	    catch (e) {
 	      	console.error(e);
 	    }
+	    finally {
+	      	commit('setLoading', false, { root: true })
+	    }
 	},
 
 	async fetchOil ({ commit }, name) {
+      	commit('setLoading', true, { root: true })
+      	
 	    try {
 			const { data } = await axios.get('oils/' + name)
 			commit('setOil', data)
 	    } 
 	    catch (e) {
 	      	console.error(e);
+	    }
+	    finally {
+	      	commit('setLoading', false, { root: true })
 	    }
 	},
 }

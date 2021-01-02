@@ -1,6 +1,20 @@
 import Cookies from 'js-cookie'
 import { cookieFromRequest, getPrefixFromRequest } from '~/utils'
 
+export const state = () => ({
+    loading: false,
+})
+
+export const getters = {
+    loading: state => state.loading,
+}
+
+export const mutations = {
+  setLoading (state, loading) {
+    state.loading = loading
+  },
+}
+
 export const actions = {
   nuxtServerInit ({ commit }, { req }) {
     const token = cookieFromRequest(req, 'token')

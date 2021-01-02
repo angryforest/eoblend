@@ -1,25 +1,27 @@
 <template>
-  <article class="container-fluid">
+  <article v-if="!loading" class="container-fluid">
 
     <div class="row mbot3">
       <div class="col-md-4">
 
-        <table class="table table-sm">
+        <table class="table table-sm table-hover">
           <thead>
             <tr>
               <th scope="col">Адрес</th>
               <th scope="col" class="text-center">Посетители</th>
               <th scope="col" class="text-center">Просмотры</th>
-              <th scope="col" class="text-right">Язык</th>
             </tr>
           </thead>
           <tbody>
-            <tr v-for="view in views">
+            <router-link v-for="view in views"
+                         :key="view.url"
+                         :to="'views/url?url=' + view.url"
+                         :title="view.url"
+                         tag="tr">
               <td>{{ view.url }}</td>
               <td class="text-center">{{ view.visits }}</td>
               <td class="text-center">{{ view.total }}</td>
-              <td class="text-right">{{ view.language }}</td>
-            </tr>
+            </router-link>
           </tbody>
         </table>
 
@@ -38,6 +40,7 @@
     }),
 
     computed: mapGetters({
+      loading: 'loading',
       views: 'views/views',
     }),
 

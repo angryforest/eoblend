@@ -32,7 +32,8 @@ class PageViewLogic implements PageViewLogicInterface
         $url = str_replace('/'.$request->input('lang'), '', $url);
 
         // Не считаем технические страницы
-        if($url === '/views/') return false;
+        if(explode('/', $url)[1] === 'views') 
+            return false;
 
         // Отслеживаем мобильные устройства
         $regex = "/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i";

@@ -32,4 +32,11 @@ class PageViewController extends Controller
             'pageViews' => $this->pageViewRepository->pageViewStat(),
         ]);
     }
+
+    public function getPageViewsByUrl(Request $request)
+    {
+        return response()->json([
+            'pageViews' => $this->pageViewRepository->pageViewStatByUrl($request),
+        ]);
+    }
 }
