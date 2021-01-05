@@ -8,6 +8,7 @@ if (!Vue.__views_tracker__) {
     data() {
       return {
         prevRoute: null,
+        currentRoute: null,
       }
     },
 
@@ -21,6 +22,7 @@ if (!Vue.__views_tracker__) {
     beforeRouteEnter(to, from, next) {
       next(vm => {
         vm.prevRoute = from
+        vm.currentRoute = to
       })
     },
 
@@ -28,12 +30,10 @@ if (!Vue.__views_tracker__) {
     beforeDestroy()  {
       if (this.$options.track !== true) return 
 
-      console.log(this.prevRoute.path)
-
       axios.post('page-view', { 
-        url: this.$router.currentRoute.fullPath,
+        url: this.currentRoute.fullPath,
         time: Date.now() - this.$_mountTime,
-        lang: this.$router.currentRoute.params.lang,
+        lang: this.currentRoute.params.lang,
         referer: this.prevRoute.name ? this.prevRoute.path : null
       })
     },
