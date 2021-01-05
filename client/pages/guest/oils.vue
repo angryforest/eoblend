@@ -20,6 +20,7 @@
 
   export default {
     layout: 'default',
+    track: true,
 
     head () {
       return { 

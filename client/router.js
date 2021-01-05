@@ -110,10 +110,5 @@ export function createRouter () {
     mode: 'history',
   })
 
-  router.afterEach((to, next) => {
-    if (process.client)
-      axios.post('page-view', { url: to.fullPath, lang: to.params.lang })
-  })
-
   return router
 }
