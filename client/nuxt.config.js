@@ -78,6 +78,7 @@ module.exports = {
     '~plugins/fontawesome',
     '~plugins/nuxt-client-init',
     '~plugins/router-locale-sync',
+    '~plugins/views-tracker.js',
     { src: '~plugins/bootstrap', mode: 'client' },
   ],
 

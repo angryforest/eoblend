@@ -22,6 +22,9 @@ class CreatePageViewsTable extends Migration
             $table->string('url');
             $table->string('ip');
             $table->string('agent');
+            $table->integer('time')->default(0);
+            $table->string('referer')->nullable();
+            $table->boolean('internal')->default(false);
             $table->boolean('mobile')->default(false);
             $table->unsignedInteger('user_id')->nullable();
             $table->enum('language', ['ru', 'en', 'de', 'fr', 'es', 'zh']);

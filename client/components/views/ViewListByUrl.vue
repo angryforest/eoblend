@@ -2,23 +2,25 @@
   <article v-if="!loading" class="container-fluid">
 
     <div class="row mbot3">
-      <div class="col-md-10">
+      <div class="col-md-5">
 
         <table class="table table-sm table-hover">
           <thead>
             <tr>
-              <th scope="col">IP</th>
+              <th scope="col" class="text-left">Дата</th>
               <th scope="col" class="text-center">Язык</th>
-              <th scope="col" class="text-center">Мобильный</th>
-              <th scope="col" class="text-left">Инфо</th>
+              <th scope="col" class="text-left">IP</th>
+              <th scope="col" class="text-center">Время</th>
+              <th scope="col" class="text-right">Источник</th>
             </tr>
           </thead>
           <tbody>
             <tr v-for="view in views">
-              <td>{{ view.ip }}</td>
-              <td class="text-center">{{ view.mobile }}</td>
+              <td class="text-left">{{ view.date }}</td>
               <td class="text-center">{{ view.language }}</td>
-              <td class="text-left">{{ view.agent }}</td>
+              <td class="text-left">{{ view.ip }}</td>
+              <td class="text-center">{{ view.time }}</td>
+              <td class="text-right">{{ view.referer }}</td>
             </tr>
           </tbody>
         </table>

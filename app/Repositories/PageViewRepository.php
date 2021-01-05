@@ -39,11 +39,13 @@ class PageViewRepository implements PageViewRepositoryInterface
     	return DB::table('page_views')
 			->select(
 				'ip',
-				'agent',
-				'mobile',
+				'time',
+				'referer',
 				'language',
+				DB::raw('DATE_FORMAT(created_at, "%d.%m.%Y %H:%i") AS date'),
 			)
 			->where('url', $request->input('url'))
+			->orderBy('date', 'DESC')
 			->get();
     }
 }

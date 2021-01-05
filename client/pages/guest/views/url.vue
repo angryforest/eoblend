@@ -4,7 +4,7 @@
     <div class="row mbot3">
       <div class="col-md-12">
         <h1>
-          Счётчик просмотров на странице
+          {{ this.$route.query.url }}
         </h1>
       </div>
     </div>

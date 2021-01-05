@@ -19,9 +19,12 @@ class PageView extends Model
     protected $fillable = [
         'ip',
         'url',
+        'time',
         'agent',
         'mobile',
         'user_id',
+        'referer',
+        'internal',
         'language',
     ];
 
