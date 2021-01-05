@@ -34,7 +34,7 @@ if (!Vue.__views_tracker__) {
         url: this.currentRoute.fullPath,
         time: Date.now() - this.$_mountTime,
         lang: this.currentRoute.params.lang,
-        referer: this.prevRoute.name ? this.prevRoute.path : null
+        referer: this.prevRoute.name ? this.prevRoute.path : window.document.referrer
       })
     },
 
