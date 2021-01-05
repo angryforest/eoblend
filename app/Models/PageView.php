@@ -24,7 +24,6 @@ class PageView extends Model
         'mobile',
         'user_id',
         'referer',
-        'internal',
         'language',
     ];
 

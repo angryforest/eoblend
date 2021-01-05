@@ -42,8 +42,6 @@ class PageViewLogic implements PageViewLogicInterface
         // Отслеживаем посещения пользователей
         $user = $request->user();
 
-        $referer = request()->headers->get('referer');
-
         // Добавляем просмотр в кэш
         $views = Cache::get('new_views') ?? [];
         $views[] = [
@@ -53,8 +51,7 @@ class PageViewLogic implements PageViewLogicInterface
             'agent' => $request->header('User-Agent'),
             'user_id' => $user ? $user->id : NULL,
             'mobile' => $isMobile,
-            'referer' => $request->input('referer') ?? $referer,
-            'internal' => $request->input('referer') ? true : false,
+            'referer' => $request->input('referer'),
         	'language' => $request->input('lang'),
             'created_at' => date('Y-m-d H:i'),
             'updated_at' => date('Y-m-d H:i'),
