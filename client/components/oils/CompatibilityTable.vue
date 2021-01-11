@@ -86,7 +86,7 @@
       },
 
       oilProps (oil) {
-        return this.checkedProperties.filter(id => oil.properties[id])
+        return this.checkedProperties.filter(id => oil.properties.includes(id))
       },
 
       // Летучесть масел указана в числах с плавающей точкой (возможно будет использовано позже)
